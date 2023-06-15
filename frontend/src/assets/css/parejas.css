@@ -1,0 +1,185 @@
+.container-parejas {
+  max-width: 1200px;
+  min-height: 100vh;
+  margin-top: 7%;
+  margin-left: 32%;
+  margin-right: 30%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.middle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+/* grid */
+.grid {
+  display: -ms-grid;
+  display: grid;
+}
+
+.grid-2 {
+  -ms-grid-columns: (1fr) 2;
+      grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-4 {
+  -ms-grid-columns: (1fr) 4;
+      grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* main screen */
+.mainscreen {
+  padding: 20px;
+  color: #000000;
+}
+
+.mainscreen--title {
+  margin: 0 0 50px;
+  font-size: 3em;
+  color: #0b2e64;
+}
+
+.mainscreen--menu {
+  padding: 20px 10px;
+}
+
+.logo-react {
+  color: #00aeff;
+  -webkit-animation: spin 4s linear infinite;
+          animation: spin 4s linear infinite;
+  position: absolute;
+  margin: 0 10px;
+}
+
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+/* buttons */
+.button-juegos {
+  background-color: #cdff3f;
+  color: #3b27b7;
+  width: 150px;
+  font-weight: bold;
+  padding: 10px 20px;
+  margin: 10px 0;
+  -webkit-box-shadow: 2px 2px 5px #000;
+          box-shadow: 2px 2px 5px #000;
+  border-radius: 15px;
+  border: 3px solid #a2d612;
+  cursor: pointer;
+}
+
+/* game screen */
+.gamescreen {
+  padding: 10px;
+  width: 100%;
+  
+}
+
+.gamescreen--score {
+  color: #000000;
+  padding: 1px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+/* cards */
+.card-juegos {
+  background-color: transparent;
+  width: 100%;
+  height: 100px;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  /* Remove this if you don't want the 3D effect */
+  cursor: pointer;
+}
+
+.card--inner {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  -webkit-transition: -webkit-transform 0.8s;
+  transition: -webkit-transform 0.8s;
+  transition: transform 0.8s;
+  transition: transform 0.8s, -webkit-transform 0.8s;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+
+  border-radius: 20px;
+}
+
+.card--inner i {
+  font-size: 2em;
+}
+
+@media only screen and (min-width: 992px) {
+  .card--inner i {
+    font-size: 4em;
+  }
+}
+
+.card--front, .card--back {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 15px;
+  backface-visibility: hidden;
+}
+
+.card--front {
+  background-color: #bbb;
+  color: #3b27b7;
+}
+
+.card--back {
+  background-color: dodgerblue;
+  color: white;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.rotate .card--inner {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+@media only screen and (min-width: 992px) {
+  .card-parejas {
+    height: 100px;
+  }
+}
+
+/* finish screen */
+.finishscreen {
+  color: #000000;
+}

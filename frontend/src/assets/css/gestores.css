@@ -1,0 +1,176 @@
+/* cards */
+.car1 {
+	margin-top: 60px;
+	display: flex !important;
+	min-width: 118%;
+}
+
+.car2 {
+	display: flex !important;
+	margin-top: -367px;
+	width: 118%;
+	margin-left: 130%;
+}
+
+/* imagenes */
+
+.imgsena {
+	max-width: 50%;
+	margin-top: 10%;
+	border-radius: 10px;
+}
+
+/* divs */
+
+.informacion {
+	width: 40%;
+	margin-top: 20%;
+	margin-left: 9%;
+}
+
+.otrainfo {
+	width: 100%;
+	margin-top: -265px;
+	margin-left: 110%;
+}
+
+.div2 {
+	background-color: #EEF1FA;
+	width: 100%;
+	height: 300px;
+	margin-top: 600px;
+}
+
+.tablagestor {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.container-psico {
+	width: 90%;
+	margin: auto;
+	text-align: center;
+}
+
+.container-psico hr {
+	color: #00324D;
+	background-color: #5eaee0;
+}
+
+.espaciox {
+	margin-top: 5% !important;
+
+}
+
+/* botones  */
+.botonmodal {
+
+	display: flex !important;
+	background-color: #00324D;
+	color: white;
+	max-width: 15%;
+	margin-left: 20%;
+	margin-right: 20%;
+	justify-content: center;
+
+}
+
+.bononaceptcancel {
+	background-color: #00324D;
+	color: white;
+}
+
+/* texto */
+.titulocard {
+	width: 50%;
+	margin-left: 53%;
+	margin-top: -180px;
+}
+
+.titulo10 {
+
+	color: black;
+	font-size: 2em;
+	font-family: Georgia, 'Times New Roman', Times, serif !important;
+}
+
+.titulo101 {
+	color: black;
+	font-size: 3em;
+	font-family: Georgia, 'Times New Roman', Times, serif !important;
+}
+
+/*--------------------------------------------------------------
+# Events
+--------------------------------------------------------------*/
+.events .events {
+	content: initial !important;
+	margin-top: 14% !important;
+	border: 0 !important;
+	padding: 0 30px !important;
+	margin-bottom: 60px !important;
+	position: relative !important;
+	--bs-card-border-color: var(--bs-border-color-translucent) !important;
+	min-width: 100% !important;
+
+
+}
+
+.events .events-body {
+	z-index: 10 !important;
+	background: #fff !important;
+	border-top: 4px solid #fff !important;
+	padding: 30px !important;
+	box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1) !important;
+	margin-top: -60px !important;
+	transition: 0.3s !important;
+	min-height: 10%;
+
+}
+
+.events .events-title {
+	font-weight: 700 !important;
+	text-align: center !important;
+	margin-bottom: 20px !important;
+}
+
+.events .events-title a {
+	color: black !important;
+	transition: 0.3s !important;
+}
+
+.events .events-text {
+	color: black !important;
+	max-width: 200%;
+	max-height: 20% !important;
+
+}
+
+.events .read-more a {
+	color: black !important;
+	text-transform: uppercase !important;
+	font-weight: 600 !important;
+	font-size: 12px !important;
+	transition: 0.3s !important;
+}
+
+.events .read-more a:hover {
+	color: #00324D !important;
+}
+
+.events .events:hover {
+	transform: scale(1.1) !important;
+}
+
+.events .events:hover .events-body {
+	border-color: #00324D !important;
+}
+
+.events .events:hover .events-body .events-title a {
+	color: #00324D !important;
+}
+
+.events .arreglotext {
+	width: 50px;
+}

@@ -1,0 +1,191 @@
+/*carrusel */
+.carousel-control {
+  position: relative !important;
+  margin-top: 50%;
+}
+
+.tittle {
+  text-transform: capitalize;
+  position: relative !important;
+  margin-top: 100px !important;
+  text-align: center;
+}
+
+.carousel-inner {
+  position: relative;
+  box-sizing: content-box;
+  width: 100%;
+  margin-top: 95px;
+}
+
+/*texto y color dentro del carrusel*/
+.carousel-caption {
+  text-align: center;
+  background-color: rgb(169, 179, 179);
+  border-radius: 2%;
+  display: block;
+}
+
+.carousel-caption h3 {
+  color: #fff;
+}
+
+.carousel-caption p {
+  color: #fff;
+}
+
+.carousel-caption button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #337ab7;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.carousel-caption button:hover {
+  background-color: #23527c;
+}
+#culturaypaz {
+  position: relative;
+  border-radius: 5px;
+  background: #010f2f;
+  height: 4px;
+  width: 87%;
+  left: 7%;
+  opacity: 0.9;
+}
+
+.nosotros hr {
+  border-radius: 5px;
+  background: #010f2f;
+  height: 5px;
+  width: 35%;
+  margin: auto;
+  margin-top: 80px;
+  opacity: 0.9;
+}
+
+#aside {
+  order: 2;
+  margin-top:64% !important;
+  width: max-content;
+  padding: 10px;
+}
+/*texto de cultura y paz cuadro */
+
+.bg-light {
+  background-color: rgb(209, 234, 236) !important ;
+  opacity: 78%;
+
+}
+
+/*texto de cultura y paz */
+#tituloK {
+  color: #010f2f;
+}
+#parrafok {
+  color: #010f2f;
+}
+#titulom {
+  color: #010f2f;
+}
+/*----------------------------------*/
+.containerk {
+  display: grid;
+  position: relative;
+  gap: 50px;
+  grid-template-columns: 70% 20%;
+  align-items: initial;
+  align-content: center;
+  margin-left: 6% !important;
+  margin-top: -7%;
+}
+/* Estilos personalizados para el diálogo de SweetAlert2 */
+.swal2-popup {
+  font-family: Arial, sans-serif;
+}
+
+.swal2-title {
+  font-size: 20px;
+  color: #333;
+}
+
+.swal2-content {
+  font-size: 16px;
+  color: #666;
+}
+
+.swal2-image {
+  width: 300px;
+  height: 200px;
+  margin-top: 10px;
+  border-radius: 4px;
+}
+.swal2-actions {
+  margin-top: 20px;
+}
+
+.swal2-confirm,
+.swal2-cancel {
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 16px;
+}
+.swal2-styled.swal2-confirm {
+  background-color: #021f31 !important;
+}
+
+.swal2-styled.swal2-cancel {
+  background-color: #021f31 !important;
+}
+
+.swal2-styled.swal2-confirm:hover {
+  box-shadow: 2px 2px 4px rgb(50, 56, 109), 0 0 2em rgb(85, 85, 221),
+    0 0 0.2em rgb(37, 45, 73);
+  background-color: rgb(229, 240, 229) !important;
+
+  color: #021f31;
+}
+.swal2-styled.swal2-cancel:hover {
+  box-shadow: 2px 2px 4px rgb(50, 56, 109), 0 0 2em rgb(85, 85, 221),
+    0 0 0.2em rgb(37, 45, 73);
+  background-color: rgb(229, 240, 229) !important;
+  color: #021f31;
+}
+
+@media (max-width: 768px) {
+  .swal2-image .column-1,
+  .containerk,
+  #aside {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  #aside {
+    margin-top: 0%;
+  }
+}
+
+@media (max-width: 768px) {
+  .containerk {
+    margin-top: -60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-caption {
+    position: unset;
+  }
+}
+
+@media (max-width: 768px) {
+  .tittle {
+    position: inherit !important;
+    margin-top: 100px !important;
+  }
+}
+

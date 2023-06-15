@@ -1,0 +1,155 @@
+.App {
+  text-align: center;
+  margin-top: 7%;
+  
+}
+
+.question-card {
+  /* Center the div  */
+  margin: 0 auto;
+  margin-top: 2%;
+  
+  
+
+  /* Dimensions  */
+  width: 80%; /* Can be in percentage also. */
+  height: auto;
+
+  /* Visual  */
+  background-color: #06192c;
+  padding: 16px;
+  border-radius: 16px;
+  color: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+}
+
+
+.optionn {
+  margin-top: 8px;
+  background-color: rgb(133, 133, 133);
+  margin-right:30px;
+  list-style: none;
+  padding: 16px;
+  border: 3px solid white;
+  border-radius: 20px;
+  font-size: 20px;
+}
+
+
+.question-text {
+  color: rgb(255, 255, 255);
+  font-size: 24px;
+}
+
+/* Final Results  */
+
+.final-results {
+  /* Center the div  */
+  margin: 0 auto;
+
+  /* Dimensions  */
+  width: 50%; /* Can be in percentage also. */
+  height: auto;
+  margin-top: 64px;
+
+  /* Visual  */
+  background-color: gray;
+  padding: 16px;
+  border-radius: 16px;
+  color: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+}
+
+.button-restartgame {
+  background-color: #06192c  ; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 24px;
+}
+
+.containerj{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 250px;
+}
+
+
+.imgCuiz{
+  width: 90%;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+}
+.imgParejas {
+  width: 90%;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+}
+
+.juego1 {
+  width: 25%;
+  margin-right: 110px;
+  position: relative;
+  top: -90px;
+  transition: 1s;
+  box-shadow: 0 0 30px #05AFF2;
+
+}
+.juego1:hover{
+  transform: scale(1.05);
+  transition: 0.8s;
+
+
+}
+.juego2 {
+  width: 25%;
+  margin-left: 110px;
+  top: -90px;
+  transition: 1s;
+  box-shadow: 0 0 30px #A0D94A;
+
+
+}
+.juego2:hover{
+  transform: scale(1.05);
+  transition: 0.8s;
+
+}
+
+.botonesjuegos {
+  font-family: "Satisfy", serif;
+  background-color: #06192c;
+  border: #ffffff solid;
+
+}
+
+.botonesjuegos:hover {
+
+  font-family: "Satisfy", serif;
+  background-color: #06192c;
+  border: #ffffff solid;
+  
+}
+
+.botonesjuegos .textbtngamer {
+  font-size: 15px;
+  padding-top: 5px;
+
+}
+
+.botonesjuegos .textbtngamer:hover {
+  text-shadow: 1px 1px 2px rgb(247, 246, 246), 0 0 1em rgb(203, 203, 210), 0 0 0.2em rgb(79, 79, 202);
+  color: white;
+}

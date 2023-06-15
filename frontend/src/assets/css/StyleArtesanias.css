@@ -1,0 +1,125 @@
+/*icono de la imagen*/
+
+.foto {
+  border-radius: 1rem;
+  width: 400% !important;
+}
+
+.icon-lg {
+  width: 64px;
+  height: 64px;
+}
+
+.icon-shape {
+  width: 48px;
+  height: 48px;
+  background-position: center;
+  border-radius: 0.5rem;
+}
+
+.shadow-success {
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px #00324d !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.mt-n4 {
+  margin-top: -1.5rem !important;
+}
+
+
+.icon {
+  fill: currentColor;
+  stroke: none;
+}
+
+.icon-lg {
+  height: 1.6em;
+  width: 1.6em;
+}
+
+.icon {
+  display: block;
+  color: #111111;
+  height: 1em;
+  width: 1em;
+}
+
+/*cambia el color del texto de la tarjeta y lo transforma */
+.pt-1 {
+  color: #111111;
+  text-transform: capitalize;
+  margin: 5px 0px 15px 0px;
+}
+
+
+
+.art-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+}
+
+
+
+.shadow-dark {
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14),
+    0 7px 10px -5px rgba(64, 64, 64, 0.4) !important;
+}
+
+
+
+
+
+/*posicion para que se ponga responsivo y se adpte por debejo de todo lo que hay en 
+  la parte de necima*/
+.position-fixed {
+  z-index: 9999;
+}
+
+
+/*botones de ver mas y eliminarr*/
+
+.bg-img {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+/*botones de las cards  */
+.swal2-styled.swal2-confirm {
+  color: var(--bs-btn-hover-color);
+  background-color: #00324d;
+  border-color: var (var(--bs-btn-hover-border-color));
+  color: #fff;
+}
+
+/* Estilos personalizados para el diálogo de SweetAlert2 */
+/*titulo*/
+
+.swal2-title {
+  color: #00324d !important;
+}
+/*subtitulo*/
+
+.swal2-html-container {
+  color: #00324d !important;
+}
+.btn-opt{
+  background: #02264b;
+  color: #fff;
+  border: 1px solid #02264b;
+}
+.btn-opt:hover{
+  background-color: #043667;
+  color: #fff;
+  border: 1px solid #fff;
+}
+.btn-danger:hover{
+  background-color: #972a2a;
+  color: #fff;
+  border: 1px solid #fff;
+}

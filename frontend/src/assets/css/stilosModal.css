@@ -1,0 +1,63 @@
+.colorheader {
+	background-color: #00324D !important;
+	color: white !important;
+}
+
+.formtext {
+	text-align: center !important;
+	justify-items: center;
+}
+
+.espacioboton {
+	margin-top: 10%;
+	min-width: 10%;
+	text-align: center;
+}
+
+.letter {
+	text-align: center;
+	font-size: 20px;
+}
+
+.espacioevents {
+	color: black;
+	font-size: 2em;
+
+	font-family:Georgia, 'Times New Roman', Times, serif
+}
+.eventstam{
+	width: 300px; /* Ancho fijo de la tarjeta */
+	height: 500px; /* Alto fijo de la tarjeta */
+	border: 1px solid #ccc;
+	padding: 10px;
+}
+
+.botonmuro {
+	background-color: #00324D !important;
+	color: white !important;
+	border-radius: 5px;
+	padding: 10px 20px;
+	margin-top: -800px;
+  }
+  
+  
+  
+  
+  
+.tarjetas{
+	margin-top: 10%;
+}
+.titulo90{
+
+
+		color: black;
+		font-size: 2em;
+		font-family:Georgia, 'Times New Roman', Times, serif !important;
+
+	
+	}
+	
+	  
+
+
+
