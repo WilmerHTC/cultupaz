@@ -6,6 +6,7 @@
 .formtext {
 	text-align: center !important;
 	justify-items: center;
+	color: black !important;
 }
 
 .espacioboton {
@@ -23,11 +24,14 @@
 	color: black;
 	font-size: 2em;
 
-	font-family:Georgia, 'Times New Roman', Times, serif
+	font-family: Georgia, 'Times New Roman', Times, serif
 }
-.eventstam{
-	width: 300px; /* Ancho fijo de la tarjeta */
-	height: 500px; /* Alto fijo de la tarjeta */
+
+.eventstam {
+	width: 300px;
+	/* Ancho fijo de la tarjeta */
+	height: 500px;
+	/* Alto fijo de la tarjeta */
 	border: 1px solid #ccc;
 	padding: 10px;
 }
@@ -38,26 +42,14 @@
 	border-radius: 5px;
 	padding: 10px 20px;
 	margin-top: -800px;
-  }
-  
-  
-  
-  
-  
-.tarjetas{
+}
+
+.tarjetas {
 	margin-top: 10%;
 }
-.titulo90{
 
-
-		color: black;
-		font-size: 2em;
-		font-family:Georgia, 'Times New Roman', Times, serif !important;
-
-	
-	}
-	
-	  
-
-
-
+.titulo90 {
+	color: black;
+	font-size: 2em;
+	font-family: Georgia, 'Times New Roman', Times, serif !important;
+}

@@ -7,7 +7,7 @@ const Agenda = () => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:7000/gestor/acompanamiento')
+        axios.get('http://localhost:7000/mostrarAsistencia')
             .then((res) => setData(res.data))
             .catch((err) => console.log(err));
     }, []);

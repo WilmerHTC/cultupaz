@@ -15,7 +15,7 @@ import morgan from "morgan";
 //   crearevento,
 //   mostarevento,
 // } from "../controllers/GestorController.js";
-import gestor from "../app/routes/gestor.routes.js";
+
 // import Jwt from "jsonwebtoken";
 
 import {
@@ -37,7 +37,8 @@ import registrosApp from "../app/routes/registros.routes.js";
 import usuarios from "../app/routes/usuarios.routes.js";
 //ver solicitudes
 import solicitudes from "../app/routes/admin.routes.js";
-
+///Gestor
+import gestorEvento from "./routes/gestorRoutes/gestor.routes.js"
 // Mi app principal
 const app = express();
 app.use(
@@ -79,7 +80,7 @@ const __dirname = dirname(__filename);
 app.use(registrosApp);
 app.use(usuarios);
 app.use(solicitudes);
-app.use(gestor);
+app.use(gestorEvento);
 // SETEAMOS LAS VARIABLES DE ENTORNO.
 env.config({ path: "./env/.env" });
 

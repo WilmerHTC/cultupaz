@@ -8,26 +8,41 @@ import '../../assets/css/stilosModal.css';
 
 function Evento() {
 
-  const [eventos, setEventos] = useState([]);
+  const [verEventos, setEventos] = useState([]);
+
+  const eventosFuturos = verEventos.filter((evento) => {
+    const fecha = new Date(evento.fecha_evento);
+    return fecha >= new Date();
+  });
   useEffect(() => {
-    axios.get('http://localhost:7000/gestor/evento')
-      .then(res => setEventos(res.data))
-      .catch(err => console.log(err));
+    treaerEventos();
   }, []);
 
+  const treaerEventos = async () => {
+    try {
+      const { data } = await axios.get("http://localhost:7000/mostrarEventos",);
+      setEventos(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const [book, setBook] = useState({
-    descripcion_asistencia: ''
+    descripcion_asistencia: '',
+    idUsuario: 1,
+    idEvento: 2,
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     axios
-      .post('http://localhost:7000/gestor/acompanamiento', book)
+      .post('http://localhost:7000/crearAsistencia', book)
       .then((res) => {
         console.log(res);
         setBook({
-          descripcion_asistencia: ''
+          descripcion_asistencia: '',
+          idUsuario: 1,
+          idEvento: 2,
         });
       });
   };
@@ -50,32 +65,13 @@ function Evento() {
       if (result.isConfirmed) {
         handleClose();
       }
-    });
+    }
+    );
   };
 
   const handleClose = () => setShow(false);
   const [show, setShow] = useState(false);
   const handleShow = () => setShow(true);
-  const [listUpdated, setListUpdated] = useState(false);
-
-  useEffect(() => {
-
-  }, [listUpdated]);
-  //formato de fecha
-
-  const formatDate = (dateString) => {
-    const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
-    const date = new Date(dateString);
-    const currentDate = new Date();
-
-    if (date < currentDate) {
-      return null; // Si la fecha ya ha pasado, retorna null
-    }
-
-    return date.toLocaleDateString('es-ES', options);
-  };
-
-
 
   return (
     <div>
@@ -96,46 +92,55 @@ function Evento() {
           </Button>
         </center>
       </div>
-      <section id="events" className="events arreglo2">
+      <section id="events" className="events">
         <div className="container" data-aos="fade-up">
 
           <div className="row col-lg-12" >
-            {eventos.filter((evento) => formatDate(evento.fecha_evento) !== null).map((evento, index) => (
-              <div key={index} className="col-xl-4 d-flex flex-column align-items-stretch">
+          {eventosFuturos.map((eventos, idEvento) => {
+              const fecha = new Date(eventos.fecha_evento);
+
+              const year = fecha.getFullYear();
+              const month = fecha.getMonth() + 1;
+              const day = fecha.getDate();
+
+              const formattedMonth = String(month).padStart(2, '0');
+              const formattedDay = String(day).padStart(2, '0');
+
+              const formattedFecha = `${year}-${formattedMonth}-${formattedDay}`;
+
+
+              return <div className="col-xl-4 d-flex flex-column align-items-stretch" key={idEvento}>
 
                 <div className="events">
                   <div className="events-body">
-                    <p className="events-title h5">{evento.tema_evento}</p>
-                    <p className="fst-italic text-center">{formatDate(evento.fecha_evento)}</p>
-                    <p className="events-text">{evento.descripcion_evento}</p>
-
-
+                    <p className="events-title h5" >Tema: {eventos.tema_evento}</p>
+                    <p className="fst-italic text-center">Fecha: {formattedFecha}</p>
+                    <p className="events-text text-center">{eventos.descripcion_evento}</p>
                   </div>
                 </div>
               </div>
-            ))}
-            {/* ------------- */}
+            })}
           </div>
         </div>
       </section>
-      <center>
-      </center>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton className="colorevento colorheader">
           <Modal.Title className="colorevento ">Registro de asistencia</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
-
+            <label className="formtext py-2 px-1">
+              ¿Qué tema que te gustaría que abordemos en futuros eventos?
+            </label>
             <textarea
               type="text"
-              className="form-control"
+              className="form-control formtext"
               placeholder="De Qué Quieres Hablar"
               name="descripcion_asistencia"
               value={book.descripcion_asistencia}
               onChange={handleChange}
-              rows={10}
-              cols={80}
+              rows={6}
+              cols={40}
 
             />
             <div className="espacioboton my-3">
@@ -154,5 +159,4 @@ function Evento() {
     </div>
   );
 }
-
 export default Evento;

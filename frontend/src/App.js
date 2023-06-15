@@ -15,7 +15,7 @@ import RegistroGestor from "./view/RegistroGestor.jsx";
 // import gestor
 import CompMenuGestor from "./components/MenuGestor.jsx";
 import AgendaGestor from "./view/GestorPaz/Agenda.jsx";
-import GestorEventos from "./view/GestorPaz/Eventos copy.jsx";
+import GestorEventos from "./view/GestorPaz/Eventos.jsx";
 import GestorPerfil from "./view/GestorPaz/Perfil.jsx";
 
 //import aprendiz
@@ -26,9 +26,7 @@ import Juegos from "./view/aprendiz/Juegos.jsx"
 import Quiz from "./view/aprendiz/Quiz.jsx"
 import Parejas from "./view/aprendiz/parejas/Parejas.jsx";
 import MuroAprendiz from "./view/aprendiz/Muro.jsx"
-
 import Evento from './view/aprendiz/evento.jsx'
-
 import AprendizPerfil from "./view/aprendiz/PerfilAprendiz.jsx";
 
 

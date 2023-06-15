@@ -65,7 +65,6 @@
 
 /* botones  */
 .botonmodal {
-
 	display: flex !important;
 	background-color: #00324D;
 	color: white;
@@ -73,7 +72,6 @@
 	margin-left: 20%;
 	margin-right: 20%;
 	justify-content: center;
-
 }
 
 .bononaceptcancel {
