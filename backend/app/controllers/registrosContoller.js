@@ -178,7 +178,7 @@ export const loginUsuarios = async (req, res) => {
       }
 
       // Cofigro la sesion de usuario
-      req.session.usuario = resul[0].usuario;
+      req.session.usuario = resul[0].usuario; 
       console.log(req.session.usuario);
 
       if (resul[0].idTipo == 1) {
