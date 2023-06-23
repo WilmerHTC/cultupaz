@@ -10,13 +10,7 @@ import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
 import morgan from "morgan";
 
-import {
-  getTasks,
-  getTask,
-  createTask,
-  deleteTask,
-  updateTask,
-} from "../app/controllers/murin.controllers copy.js";
+import murin from "../app/routes/murin.routes.js";
 // LLamo a mis rutas
 // import GaleriaRouter from "./routes/artesanias.routes.js";
 import dbconnection from "./database/dbConf.js";
@@ -99,11 +93,7 @@ app.delete("/api/endpoint", (req, res) => {
 });
 
 // FINAL
-app.get("/tasks", getTasks);
-app.get("/tasks/:id", getTask);
-app.post("/tasks", createTask);
-app.put("/tasks/:id", updateTask);
-app.delete("/tasks/:id", deleteTask);
+app.use(murin);
 
 app.get("/ping");
 

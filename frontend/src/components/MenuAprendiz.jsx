@@ -77,10 +77,10 @@ function CompMenuAprendiz() {
                   Galeria
                 </Link>
               </li>
-              <li className="nav-item">
-                {/* <Link to={"/muroaprendiz"} className="nav-link "  >muro</Link> */}
+             
+               <li className="nav-item">
                 <Link to={"/aprendiz/muro"} className="nav-link ">
-                  muro
+              muro
                 </Link>
               </li>
               <li className="nav-item">
