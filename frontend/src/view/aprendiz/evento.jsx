@@ -26,10 +26,12 @@ function Evento() {
       console.log(error);
     }
   };
+  const idUsuario = localStorage.getItem("idUsuario");
+
   const [book, setBook] = useState({
-    descripcion_asistencia: '',
-    idUsuario: 1,
-    idEvento: 2,
+    descripcion_sugerencia_evento: '',
+    idUsuario: idUsuario,
+   
   });
 
   const handleSubmit = (e) => {
@@ -40,9 +42,9 @@ function Evento() {
       .then((res) => {
         console.log(res);
         setBook({
-          descripcion_asistencia: '',
-          idUsuario: 1,
-          idEvento: 2,
+          descripcion_sugerencia_evento: '',
+          idUsuario: idUsuario,
+         
         });
       });
   };
@@ -60,7 +62,6 @@ function Evento() {
       icon: 'success',
       timer: 3000,
       confirmButtonText: 'Aceptar',
-      cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
         handleClose();
@@ -136,8 +137,8 @@ function Evento() {
               type="text"
               className="form-control formtext"
               placeholder="De Qué Quieres Hablar"
-              name="descripcion_asistencia"
-              value={book.descripcion_asistencia}
+              name="descripcion_sugerencia_evento"
+              value={book.descripcion_sugerencia_evento}
               onChange={handleChange}
               rows={6}
               cols={40}
