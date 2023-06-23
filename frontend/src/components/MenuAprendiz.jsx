@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import React, {  useState } from "react";
+import { Link, Outlet } from "react-router-dom";
 import Logo from "../assets/img/Logocolor.png";
 import Perfil from "../assets/img/Perfil.png";
-import axios from "axios";
+
 function CompMenuAprendiz() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [subMenuOpen, setSubMenuOpen] = useState(false);
-
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
@@ -15,26 +14,10 @@ function CompMenuAprendiz() {
     setSubMenuOpen(!subMenuOpen);
   };
 
-  const [usuario, setUsuario] = useState("");
-  const navigate = useNavigate();
-  // axios.defaults.withCredentials = true;
-  useEffect(() => {
-    axios
-      .get("http://localhost:7000/verAprendices")
-      .then((res) => {
-        if (res.data[0]) {
-          res.data.forEach((row) => {
-            console.log(row.usuario);
-            setUsuario(row.usuario);
-          });
-        } else {
-          navigate("/login");
-        }
-        console.log(res);
-      })
-      .catch((err) => console.log(err));
-  }, []);
-
+  const handleLogout = () => {
+    localStorage.removeItem("idUsuario");
+    localStorage.removeItem("nameUsuario");
+  };
   return (
     <div>
       <nav
@@ -134,6 +117,7 @@ function CompMenuAprendiz() {
                   <Link
                     className="dropdown-item d-flex align-items-center"
                     to={"/"}
+                    onClick={handleLogout}
                   >
                     <i className="bi bi-box-arrow-right"></i>
                     <span>Salir</span>

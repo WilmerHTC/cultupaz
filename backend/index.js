@@ -1,6 +1,7 @@
+import { PORT } from "./app/config.js";
 import app from "./app/app.js";
 
-
-app.listen(7000, () => {
-  console.log("http://localhost:7000");
+// const port = process.env.PORT || 7000;
+app.listen(PORT, () => {
+  console.log(`http://localhost:${PORT}`);
 });

@@ -5,6 +5,10 @@ import Logo from "../assets/img/Logocolor.png";
 
 function CompMenuAdmin() {
   const [sidebarVisible, setSidebarVisible] = useState(false);
+  const handleLogout = () => {
+    localStorage.removeItem("idUsuario");
+    localStorage.removeItem("nameUsuario");
+  };
 
   const toggleSidebar = () => {
     setSidebarVisible(!sidebarVisible);
@@ -43,6 +47,7 @@ function CompMenuAdmin() {
                 <li>
                   <Link
                     to="/"
+                    onClick={handleLogout}
                     className="dropdown-item d-flex align-items-center"
                   >
                     <i className="bi bi-box-arrow-right"></i>
