@@ -7,7 +7,6 @@ export const registroEvento = async (req, res) => {
         tema_evento,
         descripcion_evento,
         fecha_evento,
-        foto_evento,
         idUsuario,
     } = req.body;
     const eventVal = [
@@ -15,7 +14,6 @@ export const registroEvento = async (req, res) => {
             tema_evento: tema_evento,
             descripcion_evento: descripcion_evento,
             fecha_evento: fecha_evento,
-            foto_evento: foto_evento,
             idUsuario: idUsuario,
         },
     ];
@@ -48,20 +46,20 @@ export const mostrarEventos = async (req, res) => {
 };
 
 export const registroAsistencia = async (req, res) => {
-    const { descripcion_asistencia, idUsuario, idEvento } = req.body;
+    const { descripcion_sugerencia_evento,idUsuario	 } = req.body;
     const eventVal = [
         {
-            descripcion_asistencia, idUsuario: idUsuario, idEvento: idEvento,
+            descripcion_sugerencia_evento,idUsuario	
         },
     ];
 
-    const query = "INSERT INTO asistencias SET ?";
+    const query = "INSERT INTO sugerencia_evento SET ?";
     dbconnection.query(query, eventVal[0], (err, resul) => {
         if (err) {
             console.error(err);
-            return res.status(500).json("Error al insertar asistencias");
+            return res.status(500).json("Error al insertar sugerencia evento");
         } else {
-            return res.status(200).json("Asistencia creado Exitoso");
+            return res.status(200).json("Sugerencia a evento fue creado Exitosamente");
         }
     });
 }
@@ -70,10 +68,12 @@ export const registroAsistencia = async (req, res) => {
 
 export const mostrarAsistencia = async (req, res) => {
     try {
-        const query = "SELECT * FROM asistencias ";
+        const query = "SELECT * FROM sugerencia_evento";
         dbconnection.query(query, (err, result) => {
             if (err) {
-                return res.status(500).json({ message: err.message });
+              console.error(err);
+return res.status(500).json({ error: err.message });
+
             }
             res.json(result);
         });
