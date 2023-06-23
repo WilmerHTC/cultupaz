@@ -26,7 +26,7 @@ function CompMenuPrincipal (){
         <Link className="navbar-brand me-2 col-lg-3" aria-current="page" to="/">
           <img src={Logo} width={90} height={70} alt='logo' />
         </Link>
-        <div className={`collapse navbar-collapse ${menuOpen ? 'show' : ''}`}>
+        <div className={`collapse navbar-collapse cont-menu ${menuOpen ? 'show' : ''}`}>
           <ul className="navbar-nav col-lg-8 justify-content-lg-center">
             <li className="nav-item">
               <Link to="/" className="nav-link ml" aria-current="page">Inicio</Link>
