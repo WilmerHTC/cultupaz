@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import React, {  useState } from "react";
+import { Link, Outlet } from "react-router-dom";
 import Logo from "../assets/img/Logocolor.png";
 import Perfil from "../assets/img/Perfil.png";
-import axios from "axios";
+
 function CompMenuAprendiz() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [subMenuOpen, setSubMenuOpen] = useState(false);
@@ -60,8 +60,8 @@ function CompMenuAprendiz() {
                   Galería
                 </Link>
               </li>
-              <li className="nav-item">
-                {/* <Link to={"/muroaprendiz"} className="nav-link "  >muro</Link> */}
+             
+               <li className="nav-item">
                 <Link to={"/aprendiz/muro"} className="nav-link ">
                   Muro
                 </Link>

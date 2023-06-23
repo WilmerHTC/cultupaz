@@ -15,12 +15,16 @@ function Eventos() {
 
   const treaerEventos = async () => {
     try {
-      const { data } = await axios.get("http://localhost:7000/mostrarEventos",);
+      const idUsuario = localStorage.getItem("idUsuario"); // Obtener el idUsuario del localStorage
+  
+      const { data } = await axios.get(`http://localhost:7000/mostrarMisEventos/${idUsuario}`);
       setEventos(data);
+      console.log(data)
     } catch (error) {
       console.log(error);
     }
   };
+  
   // Filtrar los eventos que aún no han ocurrido
   const eventosFuturos = verEventos.filter((evento) => {
     const fecha = new Date(evento.fecha_evento);

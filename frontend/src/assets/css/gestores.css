@@ -141,8 +141,7 @@
 .events .events-text {
 	color: black !important;
 	max-width: 200%;
-	max-height: 20% !important;
-
+	word-wrap: break-word;
 }
 
 .events .read-more a {

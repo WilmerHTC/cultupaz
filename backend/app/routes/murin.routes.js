@@ -1,22 +1,9 @@
 import { Router } from "express";
-import {
-  getTasks,
-  getTask,
-  createTask,
-  deleteTask,
-  updateTask,
-} from "../controllers/murin.controllers copy.js";
+import { registroTarea, mostrarTareas } from '../controllers/murin.controllers copy.js';
 
-const router = Router();
+const routers = Router();
 
-router.get("/tasks", getTasks);
+routers.post("/aprendiz/tarea", registroTarea);
+routers.get("/aprendiz/tarea", mostrarTareas);
 
-router.get("/tasks/:id", getTask);
-
-router.post("/tasks", createTask);
-
-router.put("/tasks/:id", updateTask);
-
-router.delete("/tasks/:id", deleteTask);
-
-export default router;
+export default routers;
