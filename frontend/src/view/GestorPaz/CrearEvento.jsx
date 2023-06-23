@@ -7,6 +7,7 @@ function CrearEvento() {
   const [tema_evento, setTema] = useState("");
   const [descripcion_evento, setDescripcion] = useState("");
   const [fecha_evento, setFecha] = useState("");
+  const idUsuario = localStorage.getItem("idUsuario");
   // const [foto_evento, setFoto] = useState("");
 
   const diahoy = new Date();
@@ -38,7 +39,7 @@ function CrearEvento() {
             descripcion_evento: descripcion_evento,
             fecha_evento: fecha_evento,
             // foto_evento: foto_evento,
-            idUsuario: 1,
+            idUsuario: idUsuario,
           }
         );
 
