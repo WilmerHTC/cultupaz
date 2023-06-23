@@ -15,6 +15,12 @@ function CompMenuGestor() {
     const toggleSubMenu = () => {
         setSubMenuOpen(!subMenuOpen);
     };
+
+    const handleLogout = () => {
+        localStorage.removeItem("idUsuario");
+        localStorage.removeItem("nameUsuario");
+      };
+
     return (
         <div>
 
@@ -72,10 +78,10 @@ function CompMenuGestor() {
                                     </Link>
                                 </li>
                                 <li>
-                                    <a className="dropdown-item d-flex align-items-center" href="/">
+                                    <Link className="dropdown-item d-flex align-items-center" to={"/"} onClick={handleLogout}>
                                         <i className="bi bi-box-arrow-right"></i>
                                         <span>Salir</span>
-                                    </a>
+                                    </Link>
                                 </li>
 
                             </ul>
