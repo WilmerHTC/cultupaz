@@ -177,10 +177,6 @@ export const loginUsuarios = async (req, res) => {
         return res.status(400).json("Contraseña incorrecta");
       }
 
-      // Cofigro la sesion de usuario
-      req.session.usuario = resul[0].usuario;
-      console.log(req.session.usuario);
-
       if (resul[0].idTipo == 1) {
         res.json({
           rol: 1,
@@ -205,7 +201,7 @@ export const loginUsuarios = async (req, res) => {
         res.json({
           rol: 3,
           idUsuario: resul[0].idUsuario,
-          nameUsuario: resul[0].usuario,
+          nameUsuario: resul[0].nombres,
           messagge: "Bienvenido Administrador",
         });
       }
@@ -215,11 +211,3 @@ export const loginUsuarios = async (req, res) => {
   });
 };
 
-//ver un usuario
-export const verAprendiz = async (req, res) => {
-  if (req.session.usuario) {
-    return res.json({ usuario: req.session.usuario });
-  } else {
-    return res.json({ valid: false });
-  }
-};
