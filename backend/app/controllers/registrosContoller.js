@@ -20,7 +20,7 @@ export const resgitroUsuarios = async (req, res) => {
 
   //validacion contraseña
   if (passw.length < 6) {
-    return res.status(400).json("La contraseña debe tener minimo 6 caracteres");
+    return res.status(400).json("La contraseña debe tener mínimo 6 caracteres");
   }
 
   if (passw != confirPassw) {
@@ -31,7 +31,7 @@ export const resgitroUsuarios = async (req, res) => {
   if (telefono.length < 10) {
     return res
       .status(400)
-      .json("el numero de telefono debe tener min 10 caracteres");
+      .json("El numero de telefono debe tener mínimo 10 caracteres");
   }
   // Verificar si el teléfono ya está registrado
   const telefonoExists = await valTelefonoExists(telefono);
@@ -52,12 +52,12 @@ export const resgitroUsuarios = async (req, res) => {
   // Verificar si el correo ya está registrado
   const correoExists = await valCorreoExists(correo);
   if (correoExists) {
-    return res.status(400).json("El correo electrónico ya está registrado");
+    return res.status(400).json("Existe una cuenta registrada con esta dirección de correo");
   }
   // Validación del correo electrónico
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(correo)) {
-    return res.status(400).json("El correo electrónico no es válido");
+    return res.status(400).json("Debe ingresar una dirección de correo valida");
   }
 
   const passHas = await bcryptjs.hash(passw, 10);
@@ -85,10 +85,10 @@ export const resgitroUsuarios = async (req, res) => {
   dbconnection.query(query, aprendizVal[0], (err, resul) => {
     if (err) {
       console.error(err);
-      return res.status(500).json("Error al insertar registro");
+      return res.status(500).json("No se ha podido realizar su solicitud");
     }
     if (idTipo == 1) {
-      return res.status(200).json("Registro Aprendiz exitoso");
+      return res.status(200).json("Registro Aprendiz Exitoso");
     } else if (idTipo == 2) {
       return res.status(200).json("Registro Gestor Exitoso");
     } else if (idTipo == 3) {
@@ -168,7 +168,7 @@ export const loginUsuarios = async (req, res) => {
 
     try {
       if (resul.length === 0) {
-        return res.status(400).json("Correo Incorrecto");
+        return res.status(400).json("Dirección de correo incorrecta");
       }
       const usuario = resul[0];
 
@@ -189,7 +189,7 @@ export const loginUsuarios = async (req, res) => {
         if (resul[0].estadoUsuario == 0) {
           return res
             .status(400)
-            .json("Tu solicitud esta en proceso de aprobación");
+            .json("Tu solicitud esta en proceso de aprobación para poder iniciar sesión");
         }
         res.json({
           rol: 2,
