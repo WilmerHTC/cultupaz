@@ -44,6 +44,21 @@ export const mostrarEventos = async (req, res) => {
         return res.status(500).json({ message: error.message });
     }
 };
+export const mostrarMisEventos = async (req, res) => {
+    try {
+      const {idUsuario}= req.params; // Obtener el idUsuario de los parámetros de la URL
+      
+      const query = "SELECT * FROM eventos WHERE idUsuario = ?";
+      dbconnection.query(query, [idUsuario], (err, result) => {
+        if (err) {
+          return res.status(500).json({ message: err.message });
+        }
+        res.json(result);
+      });
+    } catch (error) {
+      return res.status(500).json({ message: error.message });
+    }
+  };
 
 export const registroAsistencia = async (req, res) => {
     const { descripcion_sugerencia_evento,idUsuario	 } = req.body;
