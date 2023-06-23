@@ -9,14 +9,6 @@ import { dirname } from "path";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
 import morgan from "morgan";
-// import {
-//   enviarasistencia,
-//   verasistencia,
-//   crearevento,
-//   mostarevento,
-// } from "../controllers/GestorController.js";
-
-// import Jwt from "jsonwebtoken";
 
 import {
   getTasks,
@@ -40,6 +32,11 @@ import solicitudes from "../app/routes/admin.routes.js";
 ///Gestor
 import gestorEvento from "./routes/gestorRoutes/gestor.routes.js"
 // Mi app principal
+
+
+
+
+
 const app = express();
 app.use(
   cors({
@@ -81,6 +78,7 @@ app.use(registrosApp);
 app.use(usuarios);
 app.use(solicitudes);
 app.use(gestorEvento);
+
 // SETEAMOS LAS VARIABLES DE ENTORNO.
 env.config({ path: "./env/.env" });
 

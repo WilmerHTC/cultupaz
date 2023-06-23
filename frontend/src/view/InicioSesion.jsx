@@ -26,6 +26,9 @@ function InicioSesion() {
           showConfirmButton: false,
           timer: 1500,
         }).then(() => {
+          localStorage.setItem("idUsuario", resul.data.idUsuario);
+          localStorage.setItem("nameUsuario", resul.data.nameUsuario);
+          console.log(resul.data);
           if (resul.data.rol === 1) {
             navigate("/aprendiz");
           } else if (resul.data.rol === 2) {
@@ -62,7 +65,7 @@ function InicioSesion() {
               </h2>
               <div className="form-outline mb-4 ">
                 <label className="form-label link text-light" for="correo">
-                  Usuario
+                  Correo Electronico
                 </label>
                 <input
                   className="form-control form-control-lg"

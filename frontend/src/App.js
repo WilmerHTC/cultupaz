@@ -21,7 +21,7 @@ import GestorPerfil from "./view/GestorPaz/Perfil.jsx";
 //import aprendiz
 
 import CompMenuAprendiz from "./components/MenuAprendiz.jsx";
-import GaleriaAprendiz from "./view/aprendiz/GaleriaAprendiz.jsx";
+import GaleriaAprendiz from "./view/aprendiz/artesaniasAprendiz.jsx";
 import Juegos from "./view/aprendiz/Juegos.jsx"
 import Quiz from "./view/aprendiz/Quiz.jsx"
 import Parejas from "./view/aprendiz/parejas/Parejas.jsx";

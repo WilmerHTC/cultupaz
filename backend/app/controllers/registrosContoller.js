@@ -184,6 +184,8 @@ export const loginUsuarios = async (req, res) => {
       if (resul[0].idTipo == 1) {
         res.json({
           rol: 1,
+          idUsuario: resul[0].idUsuario,
+          nameUsuario: resul[0].usuario,
           messagge: "Bienvenido Aprendiz",
         });
       } else if (resul[0].idTipo == 2) {
@@ -195,11 +197,15 @@ export const loginUsuarios = async (req, res) => {
         }
         res.json({
           rol: 2,
+          idUsuario: resul[0].idUsuario,
+          nameUsuario: resul[0].usuario,
           messagge: "Bienvenido Gestor de Paz",
         });
       } else if (resul[0].idTipo == 3) {
         res.json({
           rol: 3,
+          idUsuario: resul[0].idUsuario,
+          nameUsuario: resul[0].usuario,
           messagge: "Bienvenido Administrador",
         });
       }

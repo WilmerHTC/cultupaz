@@ -60,7 +60,7 @@ function CompMenuGestor() {
                         <div className="d-lg-flex col-lg-4  justify-content-lg-end  ">
                             <div className="nav-link nav-profile d-flex align-items-center pe-0" data-bs-toggle="dropdown" onClick={toggleSubMenu}>
                                 <img src={Perfil} alt="Profile" className="rounded-circle" width={35} height={35} />
-                                <span className="d-none d-md-block dropdown-toggle ps-2"></span>
+                                <span className="d-none d-md-block dropdown-toggle ps-2">{localStorage.getItem("nameUsuario")} </span>
                             </div>
                             <ul className={`dropdown-menu dropdown-menu-end dropdown-menu-arrow profile dropdown-menu ${subMenuOpen ? 'show' : ''}`}>
 

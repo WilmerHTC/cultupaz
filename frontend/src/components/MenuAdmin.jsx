@@ -9,18 +9,23 @@ function CompMenuAdmin() {
   const toggleSidebar = () => {
     setSidebarVisible(!sidebarVisible);
   };
-  
+
   return (
     <div>
-      <header id="header" className="header fixed-top d-flex align-items-center "  >
+      <header
+        id="header"
+        className="header fixed-top d-flex align-items-center "
+      >
         <div className="d-flex align-items-center justify-content-between">
           <Link to={"/admin"} className="logo d-flex align-items-center m-2">
             <img src={Logo} alt="logo" />
-            
           </Link>
-          <i class="bi bi-list toggle-sidebar-btn ms-5 " onClick={toggleSidebar}></i>
+          <i
+            class="bi bi-list toggle-sidebar-btn ms-5 "
+            onClick={toggleSidebar}
+          ></i>
         </div>
-      
+
         <nav className="header-nav ms-auto">
           <ul className="d-flex align-items-center">
             <li className="nav-item dropdown pe-3">
@@ -30,7 +35,7 @@ function CompMenuAdmin() {
               >
                 <img src={Perfil} alt="Profile" className="rounded-circle" />
                 <span className="d-none d-md-block dropdown-toggle ps-2">
-                  admin
+                  {localStorage.getItem("nameUsuario")}
                 </span>
               </Link>
 
@@ -50,7 +55,10 @@ function CompMenuAdmin() {
         </nav>
       </header>
 
-      <aside  id="sidebar"   className={`sidebar ${sidebarVisible ? "hidden" : ""}`} >
+      <aside
+        id="sidebar"
+        className={`sidebar ${sidebarVisible ? "hidden" : ""}`}
+      >
         <ul className="sidebar-nav" id="sidebar-nav">
           <li className="nav-item">
             <Link to="/admin" className="nav-link ">
@@ -79,17 +87,18 @@ function CompMenuAdmin() {
               <span>Solicitudes</span>
             </Link>
           </li>
-          { <li className="nav-item">
-          <Link to={"/admin/registro"} className="nav-link collapsed">
-          <i class="bi bi-journal-text"/>
-            <span>Registro</span>
-          </Link>
-        </li> }
+          {
+            <li className="nav-item">
+              <Link to={"/admin/registro"} className="nav-link collapsed">
+                <i class="bi bi-journal-text" />
+                <span>Registro</span>
+              </Link>
+            </li>
+          }
         </ul>
       </aside>
       <Outlet />
-      </div>
-
+    </div>
   );
 }
 export default CompMenuAdmin;
