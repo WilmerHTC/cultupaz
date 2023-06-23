@@ -198,6 +198,9 @@ function RegistroUser() {
                         <option value="CC" className="text-center">
                           Cedula de ciudadania
                         </option>
+                        <option value="CE" className="text-center">
+                          Cedula de Extrangeria
+                        </option>
                       </select>
                     </div>
                     <div className="col-sm-4 mb-3">
@@ -225,7 +228,7 @@ function RegistroUser() {
                     </div>
                     <div className="col-sm-4 mb-3">
                       <label className="form-label link" for="">
-                        E-mail
+                        Correo electroníco
                       </label>
                       <input
                         type="text"

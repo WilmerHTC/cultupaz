@@ -32,7 +32,7 @@ function CompMenuPrincipal (){
               <Link to="/" className="nav-link ml" aria-current="page">Inicio</Link>
             </li>
             <li className="nav-item">
-              <Link to="/galeria" className="nav-link">Galeria</Link>
+              <Link to="/galeria" className="nav-link">Galería</Link>
             </li>
             {/* <li className="nav-item">
               <Link to="/muro" className="nav-link">Muro</Link>
@@ -44,7 +44,7 @@ function CompMenuPrincipal (){
               <Link to="/contactos" className="nav-link">Contactos</Link>
             </li>
             <li className="nav-item">
-              <Link to="/cultura" className="nav-link">Cultura y paz</Link>
+              <Link to="/cultura" className="nav-link">Cultura y Paz</Link>
             </li>
           </ul>
           <div className="d-lg-flex col-lg-4 justify-content-lg-end">

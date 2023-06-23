@@ -65,7 +65,7 @@ function InicioSesion() {
               </h2>
               <div className="form-outline mb-4 ">
                 <label className="form-label link text-light" for="correo">
-                  Correo Electronico
+                  Correo Electroníco
                 </label>
                 <input
                   className="form-control form-control-lg"
