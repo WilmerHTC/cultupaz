@@ -96,15 +96,10 @@ function Contactos() {
                       value={descripcion}
                       onChange={(ev) => setDescripcion(ev.target.value)}
                     ></textarea>
-<<<<<<< HEAD
                     <Button className="btn colorheader" type="button " onClick={registroSugerencia} >
                       enviar
                     </Button>
-=======
-                    <button className="btn btn-setup" type="button">
-                      Enviar
-                    </button>
->>>>>>> bfaa6c96648de1833fc0dcb670124f56fb0e5831
+                  
                   </div>
                 </form>
               </div>
