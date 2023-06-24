@@ -320,7 +320,7 @@ const Inicio = () => {
 
                         <div>
                           <button onClick={showAlert} className="btnmy btnmy3">
-                            Ver mas
+                            ver más
                           </button>
                         </div>
                       </div>
@@ -356,7 +356,7 @@ const Inicio = () => {
 
                         <div>
                           <button onClick={showAlert} className="btnmy btnmy3">
-                            Ver mas
+                            ver más
                           </button>
                         </div>
                       </div>
@@ -390,7 +390,7 @@ const Inicio = () => {
 
                         <div>
                           <button onClick={showAlert} className="btnmy btnmy3">
-                            Ver mas
+                            ver más
                           </button>
                         </div>
                       </div>

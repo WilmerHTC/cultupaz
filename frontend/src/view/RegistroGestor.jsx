@@ -121,7 +121,7 @@ function RegistroGestor() {
 
                     <div className="col-sm-4 mb-3">
                       <label className="form-label link" for="">
-                        Numero telefono
+                        Número teléfono
                       </label>
                       <input
                         type="number"
@@ -132,7 +132,7 @@ function RegistroGestor() {
                     </div>
                     <div className="col-sm-4 mb-3">
                       <label className="form-label link" for="">
-                        Genero
+                      Género
                       </label>
                       <select
                         className="form-control form-control-lg"
@@ -182,7 +182,7 @@ function RegistroGestor() {
                     </div>
                     <div className="col-sm-4 mb-3">
                       <label className="form-label link" for="">
-                        Numero identificación
+                        Número identificación
                       </label>
                       <input
                         type="number"

@@ -10,17 +10,17 @@ function Contactos() {
           <div className="row align-items-md-stretch mt-4 mb-4">
             <div className="col-md-6 mb-3">
               <div className="h-100 p-5  bg-contact rounded-3">
-                <h2>Lineas de atencion: </h2>
+                <h2>Lineas de atención: </h2>
                 <div className="d-flex justify-content-between">
                   <ul className="navbar-nav">
                     <li className="nav-item ms-2">
                       <b>Telefono: </b> 98982930-23
                     </li>
                     <li className="nav-item ms-2">
-                      <b>celular:</b> 312382893
+                      <b>Celular:</b> 3123828930
                     </li>
                     <li className="nav-item ms-2">
-                      <b>email: </b> fnc201@hotmail.com <p></p>
+                      <b>Email: </b>Cultupaz1@gmail.com<p></p>
                     </li>
                     <p className="ms-2">Redes sociales:</p>
                     <div className="d-flex ">
@@ -46,7 +46,7 @@ function Contactos() {
                       placeholder="Deja tu comentario"
                     ></textarea>
                     <button className="btn btn-setup" type="button">
-                      enviar
+                      Enviar
                     </button>
                   </div>
                 </form>

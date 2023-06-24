@@ -105,7 +105,7 @@ function AdminUsuarios() {
               <li className="breadcrumb-item">
                 <Link href="#">Inicio</Link>
               </li>
-              <li className="breadcrumb-item active">usuarios</li>
+              <li className="breadcrumb-item active">Usuarios</li>
             </ol>
           </nav>
         </div>
@@ -122,7 +122,7 @@ function AdminUsuarios() {
                       role="tab"
                       aria-controls="pills-home"
                       aria-selected="true">
-                      usuario aprendiz
+                      Usuario aprendiz
                     </button>
                   </li>
                   <li className="nav-item" role="presentation">
@@ -136,7 +136,7 @@ function AdminUsuarios() {
                       aria-controls="pills-profile"
                       aria-selected="false"
                     >
-                      usuarios gestor
+                      Usuarios gestor
                     </button>
                   </li>             
                 </ul>
@@ -164,9 +164,9 @@ function AdminUsuarios() {
                                       
                                       <th scope="col">Nombre</th>
                                       <th scope="col">Apellido</th>
-                                      <th scope="col">telefono</th>
-                                      <th scope="col">ficha</th>
-                                      <th scope="col">genero</th>
+                                      <th scope="col">Teléfono</th>
+                                      <th scope="col">Ficha</th>
+                                      <th scope="col"> Género</th>
                                       <th scope="col" className="text-center">Opciones</th>
                                     </tr>
                                   </thead>
@@ -178,14 +178,14 @@ function AdminUsuarios() {
                                           <td>{usuarios.apellidos}</td>
                                           <td>{usuarios.telefono}</td>
                                           <td>{usuarios.ficha}</td>
-                                          <td>{usuarios.genero}</td>
+                                          <td>{usuarios. Género}</td>
                                           <td className="text-center">
                                           <button
                                             type="button"
                                             className="btn btn-opt mx-1"
                                             
                                           >
-                                           inactivar
+                                           Inactivar
                                           </button>
                                           </td>
 
@@ -226,7 +226,7 @@ function AdminUsuarios() {
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Apellido</th>
                                     <th scope="col">telefono</th>
-                                    <th scope="col">genero</th>
+                                    <th scope="col"> Género</th>
                                     <th scope="col">correo</th>
                                     <th scope="col"className="text-center">Opciones</th>
                                   </tr>
@@ -238,7 +238,7 @@ function AdminUsuarios() {
                                         <td>{usuarios.nombres}</td>
                                         <td>{usuarios.apellidos}</td>
                                         <td>{usuarios.telefono}</td>
-                                        <td>{usuarios.genero}</td>
+                                        <td>{usuarios. Género}</td>
                                         <td>{usuarios.correo}</td>
                                         <td className="text-center">
                                             <button type="button" 

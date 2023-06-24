@@ -75,8 +75,8 @@ function AdminSolicitudes() {
                       <tr>
                         <th scope="col">Nombre</th>
                         <th scope="col">Apellido</th>
-                        <th scope="col">correo</th>
-                        <th scope="col">telefono</th>
+                        <th scope="col">Correo</th>
+                        <th scope="col">Teléfono</th>
                         <th scope="col" className="text-center">
                           Opciones
                         </th>
