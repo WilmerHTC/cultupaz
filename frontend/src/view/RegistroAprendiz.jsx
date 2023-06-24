@@ -128,7 +128,7 @@ function RegistroUser() {
 
                     <div className="col-sm-4 mb-3">
                       <label className="form-label link" for="">
-                        Telefono
+                      Teléfono
                       </label>
                       <input
                         type="number"
@@ -150,7 +150,7 @@ function RegistroUser() {
                     </div>
                     <div className="col-sm-4 mb-3">
                       <label className="form-label link" for="">
-                        Genero
+                      Género
                       </label>
                       <select
                         value={genero}
@@ -205,7 +205,7 @@ function RegistroUser() {
                     </div>
                     <div className="col-sm-4 mb-3">
                       <label className="form-label link" for="">
-                        Numero identificación
+                        Número identificación
                       </label>
                       <input
                         type="number"

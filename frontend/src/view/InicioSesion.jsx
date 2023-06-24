@@ -96,7 +96,7 @@ function InicioSesion() {
               </div>
               <div className="d-flex justify-content-center mt-3">
                 <Link to="/" className="link text-light">
-                  Volver al menu principal{" "}
+                  Volver al menú principal{" "}
                 </Link>
               </div>
             </form>

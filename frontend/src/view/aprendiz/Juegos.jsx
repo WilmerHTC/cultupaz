@@ -26,7 +26,7 @@ function Juegos() {
         <div className="card-body text-center">
           <h5 className="card-title">ENCUENTRA LA PAREJA</h5>
           <p className="card-text">
-            VEAMOS QUE TAN HABIL ERES BUSCANDO LAS PAREJAS
+            Veamos que tan hábil eres buscando las parejas.
           </p>
           <a href="/aprendiz/Parejas" className="btn btn-primary botonesjuegos">
             <h4 className="textbtngamer" >JUEGA AHORA</h4>

@@ -127,7 +127,7 @@ function AdminRegistro(){
 
                     <div className="col-sm-4 mb-3">
                       <label className="form-label link" for="">
-                        Telefono
+                      Teléfono
                       </label>
                       <input
                         type="number"
@@ -138,7 +138,7 @@ function AdminRegistro(){
                     </div>
                     <div className="col-sm-4 mb-3">
                       <label className="form-label link" for="">
-                        Genero
+                      Género
                       </label>
                       <select
                         className="form-control form-control"

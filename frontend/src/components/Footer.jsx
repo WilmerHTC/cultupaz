@@ -28,8 +28,8 @@ function CompFooter(){
                 <div className="col mb-3 mt-3">
                 <h5>Contactos</h5>
                 <ul className="nav flex-column">
-                    <li className="nav-item mb-2"><a href="https://mail.google.com/cultupaz51@gmail.com" className="nav-link p-0 text-body-secondary">cultupaz51@gmail.com</a></li>
-                    <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-body-secondary">312234235</a></li>
+                    <li className="nav-item mb-2"><a href="https://mail.google.com/cultupaz51@gmail.com" className="nav-link p-0 text-body-secondary">Cultupaz1@gmail.com</a></li>
+                    <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-body-secondary">3122342350</a></li>
                 </ul>
                 </div>
 
