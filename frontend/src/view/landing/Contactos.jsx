@@ -1,8 +1,57 @@
-import React from "react";
+import React, { useState } from "react";
 import contact from "../../assets/svg/contact.svg";
 import CompFooter from "../../components/Footer";
+import Swal from "sweetalert2";
+import axios from "axios";
+import { Button } from "react-bootstrap";
 
 function Contactos() {
+ 
+  const [descripcion, setDescripcion] = useState("");
+
+  const registroSugerencia= async () => {
+    if (
+      descripcion === "" 
+
+    ) {
+      Swal.fire({
+        icon: "error",
+        text: "rellena el campo por favor",
+        confirmButtonText: "Aceptar",
+      });
+    } else {
+
+      try {
+        var resul = await axios.post(
+          "http://localhost:7000/registroSugerencia",
+          {
+            descripcion: descripcion,
+          }
+        );
+        if (resul.status === 200) {
+          Swal.fire({
+            icon: "success",
+            title: "",
+            text: resul.data,
+            confirmButtonText: "Aceptar",
+            timer: 3000,
+          }).then(() => {
+            window.location.reload(); // Recargar la página actual
+          });
+        }
+      } catch (error) {
+        if (error.response.status === 400) {
+          Swal.fire({
+            icon: "error",
+            text: error.response.data,
+          });
+        }
+      }
+    }
+  };
+
+
+
   return (
     <div>
       <main className="bg-contactos">
@@ -44,10 +93,12 @@ function Contactos() {
                       className="form-control"
                       aria-label="With textarea"
                       placeholder="Deja tu comentario"
+                      value={descripcion}
+                      onChange={(ev) => setDescripcion(ev.target.value)}
                     ></textarea>
-                    <button className="btn btn-setup" type="button">
+                    <Button className="btn colorheader" type="button " onClick={registroSugerencia} >
                       enviar
-                    </button>
+                    </Button>
                   </div>
                 </form>
               </div>

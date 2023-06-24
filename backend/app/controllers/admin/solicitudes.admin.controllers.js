@@ -45,3 +45,46 @@ export const nuevaSolicitud = async (req, res) => {
     return res.status(500).json({ message: error.message });
   }
 };
+
+
+
+//sugerencias
+
+//registro sugerencias
+export const registroSugerencia = async (req, res) => {
+  const {
+      descripcion,
+  } = req.body;
+  const eventVal = [
+      {
+          descripcion:descripcion
+      },
+  ];
+
+  const query = "INSERT INTO sugerencias SET ?";
+  dbconnection.query(query, eventVal[0], (err, resul) => {
+      if (err) {
+          console.error(err);
+          return res.status(500).json("Error al insertar sugerencia");
+      } else {
+          return res.status(200).json("gracias por dejar tu opinión");
+      }
+  });
+}
+//ver sugerencias
+export const verSugerencias = async(req, res)=>{
+  try {
+    const query =
+      "SELECT * FROM sugerencias";
+    dbconnection.query(query, (err, result) => {
+      if (err) {
+        return res.status(500).json({ message: err.message });
+      }
+      res.json(result[0]);
+    });
+    console.log(query);
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+
+}

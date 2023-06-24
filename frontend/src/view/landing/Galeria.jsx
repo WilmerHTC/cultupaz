@@ -1,144 +1,53 @@
-
-import React, { Fragment, useState, useEffect, useRef } from "react";
-import Modal from "react-modal";
-import { Button, Form } from "react-bootstrap";
-
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 function Galeria() {
+  const [artesanias, setArtesanias] = useState([]);
 
-    const [file, setFile] = useState(null);
-    const [imageList, setImageList] = useState([]);
-    const [ListUpdated, setListUpdated] = useState(false);
-    const [currentImage, setCurrentImage] = useState(null);
-    const [modalIsOpen, setModalIsOpen] = useState(false);
-    const fileInputRef = useRef(null);
-  
-    useEffect(() => {
-      Modal.setAppElement("body");
-  
-      fetch("http://localhost:9000/images/get")
-        .then((res) => res.json())
-        .then((res) => setImageList(res))
-        .catch((err) => {
-          console.error(err);
-        });
-  
-      setListUpdated(false);
-    }, [ListUpdated]);
-  
-    const selectedHandler = (e) => {
-      setFile(e.target.files[0]);
-    };
-  
-    const sendHandler = () => {
-      if (!file) {
-        alert("Debes subir algún archivo");
-        return;
-      }
-  
-      const formData = new FormData();
-      formData.append("image", file);
-  
-      fetch("http://localhost:9000/images/post", {
-        method: "POST",
-        body: formData,
-      })
-        .then((res) => res.text())
-        .then((res) => {
-          console.log(res);
-          setListUpdated(true);
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-  
-      fileInputRef.current.value = null;
-      setFile(null);
-    };
-  
-    const modalHandler = (isOpen, image) => {
-      setModalIsOpen(isOpen);
-      setCurrentImage(image);
-    };
-  
-    const deleteHandler = () => {
-      let imageID = currentImage.split("-");
-      imageID = parseInt(imageID[0]);
-  
-      fetch("http://localhost:9000/images/delete/" + imageID, {
-        method: "DELETE",
-      })
-        .then((res) => res.text())
-        .then((res) => console.log(res))
-        .catch((err) => console.error(err));
-  
-      setModalIsOpen(false);
-      setListUpdated(true);
-    };
-  
-    return (
-      <div>
-        <Fragment>
-          <nav className="navbar navbar-dark bg-dark"></nav>
-          <br />
-          <hr />
-          <div
-            className="container"
-            style={{ display: "flex", flexWrap: "wrap" }}
-          >
-            <div className="container">
-              <div className="card p-4">
-                
-              </div>
-            </div>
-            {imageList.map((image) => (
-              <div key={image} className="card m-2 mb-5">
-                <img
-                  src={"http://localhost:9000/" + image}
-                  alt="..."
-                  className="card-img-top"
-                  style={{ height: "250px", width: "300px" }}
-                />
-                <div className="card-body">
+  useEffect(() => {
+    cargarArtesanias();
+  }, []);
+
+  const cargarArtesanias = async () => {
+    try {
+      const resul = await axios.get("http://localhost:7000/artesanias");
+      setArtesanias(resul.data);
+    } catch (error) {
+      console.log("Ocurrio un error");
+    }
+  };
+
+  console.log(artesanias);
+
+  return (
+    <div className="container mt-5 py-5">
+      
+      <section className="container">
+        <div className="mt-3">
+          <div className="row">
+            {artesanias.map((artesania) => {
+              const usuario = artesania.usuario; // Obtener el objeto de usuario de la artesanía
+              return (
+                <div className="col-lg-4" key={artesania.id}>
                   
+                  <img
+                    src={artesania.img_uno}
+                    alt="Imagen de artesanía"
+                    className="img-fluid rounded mb-4"
+                  />
+                  <h3>{artesania.titulo}</h3>
+                  <p>{artesania.descripcion}</p>
+                  <p>Nombre: {usuario.nombre}</p> {/* Mostrar el nombre del usuario */}
+                  <p>Apellido: {usuario.apellido}</p> {/* Mostrar el apellido del usuario */}
+                  <p>Teléfono: {usuario.telefono}</p> {/* Mostrar el teléfono del usuario */}
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
-          <Modal
-            style={{
-              content: {
-                width: "300px",
-                height: "300px",
-                margin: "auto",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-              },
-            }}
-            isOpen={modalIsOpen}
-            onRequestClose={() => modalHandler(false, null)}
-          >
-            {currentImage && (
-              <div className="card">
-                <img
-                  src={"http://localhost:9000/" + currentImage}
-                  alt="..."
-                  style={{ maxWidth: "100%", maxHeight: "100%" }}
-                />
-                <div className="card-body">
-                  <button onClick={deleteHandler} className="btn btn-warning">
-                    Eliminar
-                  </button>
-                </div>
-              </div>
-            )}
-          </Modal>
-        </Fragment>
-  
-        
-      </div>
-    );
-  }
+        </div>
+      </section>
+
+    </div>
+  );
+}
 export default Galeria;

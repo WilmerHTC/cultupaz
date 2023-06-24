@@ -44,6 +44,7 @@ export const mostrarEventos = async (req, res) => {
         return res.status(500).json({ message: error.message });
     }
 };
+
 export const mostrarMisEventos = async (req, res) => {
     try {
       const {idUsuario}= req.params; // Obtener el idUsuario de los parámetros de la URL
@@ -59,6 +60,29 @@ export const mostrarMisEventos = async (req, res) => {
       return res.status(500).json({ message: error.message });
     }
   };
+
+
+  //actualizar eventos
+  export const updateEvento = async (req, res)=>{
+    try {
+        const query = "UPDATE eventos SET ? WHERE idEvento=?";
+        dbconnection.query(query, [req.body, req.params.id], (err, result) => {
+          if (err) {
+            return res.status(500).json({ message: err.message });
+          }
+          res.json(result);
+        });
+      } catch (error) {
+        return res.status(500).json({ message: error.message });
+      }
+    };
+  
+
+
+
+
+
+
 
 export const registroAsistencia = async (req, res) => {
     const { descripcion_sugerencia_evento,idUsuario	 } = req.body;
@@ -79,7 +103,6 @@ export const registroAsistencia = async (req, res) => {
     });
 }
 
-//trae eventos creados
 
 export const mostrarAsistencia = async (req, res) => {
     try {
