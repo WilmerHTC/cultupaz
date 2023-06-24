@@ -18,7 +18,7 @@ function CrearTarea() {
     } else {
       try {
         var resul = await axios.post(
-          "http://localhost:7000/aprendiz/tarea",
+          "http://localhost:7000/publicacion",
           {
             titulo: titulo,
             descripcion: descripcion,
