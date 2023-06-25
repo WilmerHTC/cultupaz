@@ -124,7 +124,7 @@ function Nosotros() {
               <div className="col-lg-12">
                 <div className="section-title" data-aos="fade-right">
                   <h2>Nuestro equipo</h2>
-                  <p>El mejor equivo puesto a su disposicion</p>
+                  <p>El mejor equivo puesto a su disposición</p>
                 </div>
               </div>
 

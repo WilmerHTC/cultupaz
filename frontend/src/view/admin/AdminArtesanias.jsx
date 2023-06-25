@@ -62,7 +62,7 @@ function AdminArtesanias() {
   };
   const handleClick = () => {
     Swal.fire({
-      title: "¿Desea eliminar la artesania?",
+      title: "¿Desea eliminar la artesanía?",
       showCancelButton: "true",
       confirmButtonText: "Eliminar",
       cancelButtonText: "cancelar",
