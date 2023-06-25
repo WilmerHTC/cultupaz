@@ -47,10 +47,10 @@ export const mostrarEventos = async (req, res) => {
 
 export const mostrarMisEventos = async (req, res) => {
     try {
-      const {idUsuario}= req.params; // Obtener el idUsuario de los parámetros de la URL
+      const {id}= req.params; // Obtener el idUsuario de los parámetros de la URL
       
       const query = "SELECT * FROM eventos WHERE idUsuario = ?";
-      dbconnection.query(query, [idUsuario], (err, result) => {
+      dbconnection.query(query, [id], (err, result) => {
         if (err) {
           return res.status(500).json({ message: err.message });
         }
