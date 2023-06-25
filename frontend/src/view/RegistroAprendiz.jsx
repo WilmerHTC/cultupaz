@@ -199,13 +199,13 @@ function RegistroUser() {
                           Cedula de ciudadania
                         </option>
                         <option value="CE" className="text-center">
-                          Cedula de Extrangeria
+                          Cedula de extrangeria
                         </option>
                       </select>
                     </div>
                     <div className="col-sm-4 mb-3">
                       <label className="form-label link" for="">
-                        Número identificación
+                        Número documento
                       </label>
                       <input
                         type="number"

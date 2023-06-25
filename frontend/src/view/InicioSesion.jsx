@@ -65,7 +65,7 @@ function InicioSesion() {
               </h2>
               <div className="form-outline mb-4 ">
                 <label className="form-label link text-light" for="correo">
-                  Correo Electroníco
+                  Correo electroníco
                 </label>
                 <input
                   className="form-control form-control-lg"
@@ -91,7 +91,7 @@ function InicioSesion() {
                   onClick={iniciarSesion}
                   className=" btn-login p-1 w-100 h-50 fw-bold"
                 >
-                  Iniciar Sesión
+                  Iniciar sesión
                 </button>
               </div>
               <div className="d-flex justify-content-center mt-3">

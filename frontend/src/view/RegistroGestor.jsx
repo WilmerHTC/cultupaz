@@ -182,7 +182,7 @@ function RegistroGestor() {
                     </div>
                     <div className="col-sm-4 mb-3">
                       <label className="form-label link" for="">
-                        Número identificación
+                        Número documento
                       </label>
                       <input
                         type="number"
@@ -206,7 +206,7 @@ function RegistroGestor() {
 
                     <div className="col-sm-4 mb-3">
                       <label className="form-label link" for="">
-                       Correo Electroníco
+                       Correo electroníco
                       </label>
                       <input
                         type="text"
