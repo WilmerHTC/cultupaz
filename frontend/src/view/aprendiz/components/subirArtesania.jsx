@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 function SubirArtesania() {
-  const navigate = useNavigate();
-
+ 
   const [titulo, setTitulo] = useState("");
   const [descripcion, setDescripcion] = useState("");
   const [img_uno, setImagen] = useState(null);
@@ -39,7 +37,7 @@ function SubirArtesania() {
 
       loanding.close();
 
-      if (response.status == 200) {
+      if (response.status === 200) {
         Swal.fire({
           icon: "success",
           title: "¡excelente!",
@@ -51,7 +49,7 @@ function SubirArtesania() {
         });
       }
     } catch (error) {
-      if (error.response.status == 500) {
+      if (error.response.status === 500) {
         Swal.fire({
           icon: "error",
           text: "Error al subir la artesanía",

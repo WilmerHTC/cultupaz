@@ -15,9 +15,8 @@ function Eventos() {
 
   const treaerEventos = async () => {
     try {
-      const idUsuario = localStorage.getItem("idUsuario"); // Obtener el idUsuario del localStorage
-  
-      const { data } = await axios.get(`http://localhost:7000/mostrarMisEventos/${idUsuario}`);
+     
+      const { data } = await axios.get(`http://localhost:7000/mostrarMisEventos/${localStorage.getItem("idUsuario")}`);
       setEventos(data);
       console.log(data)
     } catch (error) {

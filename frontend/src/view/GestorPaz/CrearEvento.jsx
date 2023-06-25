@@ -13,7 +13,7 @@ function CrearEvento() {
   diahoy.setDate(diahoy.getDate() + 1); // Sumar 1 día a la fecha actual
 
   const diasgte = diahoy.toISOString().split('T')[0];
-
+  const idUsuario = localStorage.getItem("idUsuario");
 
   const registroEvento = async () => {
     if (
@@ -38,7 +38,7 @@ function CrearEvento() {
             descripcion_evento: descripcion_evento,
             fecha_evento: fecha_evento,
             // foto_evento: foto_evento,
-            idUsuario: 1,
+            idUsuario: idUsuario,
           }
         );
 
