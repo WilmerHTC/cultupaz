@@ -1,22 +1,24 @@
 import dbconnection from "../database/dbConf.js";
 
-export const registroTarea = async (req, res) => {
+export const registroPublicacion = async (req, res) => {
   try {
-    const { titulo, descripcion, idUsuario } = req.body;
+    const { titulo, descripcion,  idUsuario } = req.body;
+    const fechaCreacion = new Date(); // Generar fecha actual
 
-    const tarea = {
+    const publicacion = {
       titulo: titulo,
       descripcion: descripcion,
+      fecha_creacion:fechaCreacion,
       idUsuario: idUsuario,
     };
 
     const query = "INSERT INTO muro SET ?";
-    dbconnection.query(query, tarea, (err, result) => {
+    dbconnection.query(query, publicacion, (err, result) => {
       if (err) {
         console.error(err);
-        return res.status(500).json("Error al insertar la tarea");
+        return res.status(500).json("Error al crear tu publicacion");
       } else {
-        return res.status(200).json("Tarea creada exitosamente");
+        return res.status(200).json("Publicacion creada exitosamente");
       }
     });
   } catch (error) {
@@ -24,7 +26,7 @@ export const registroTarea = async (req, res) => {
   }
 };
 
-export const mostrarTareas = async (req, res) => {
+export const verPublicaciones = async (req, res) => {
   try {
     const query = "SELECT * FROM muro";
     dbconnection.query(query, (err, result) => {

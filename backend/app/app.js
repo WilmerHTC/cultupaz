@@ -1,11 +1,11 @@
 import express from "express";
 import cors from "cors";
 import morgan from "morgan";
+import dbconnection from "./database/dbConf.js";
 
-import murin from "../app/routes/murin.routes.js";
+import murin from "./routes/murin.routes.js";
 // LLamo a mis rutas
 import artesanias from "./routes/artesanias.routes.js";
-import dbconnection from "./database/dbConf.js";
 //registrologin
 import registrosApp from "../app/routes/registros.routes.js";
 //verusuarios

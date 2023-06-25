@@ -67,7 +67,7 @@ export const registroSugerencia = async (req, res) => {
           console.error(err);
           return res.status(500).json("Error al insertar sugerencia");
       } else {
-          return res.status(200).json("gracias por dejar tu opinión");
+          return res.status(200).json("Gracias por dejar tu opinión");
       }
   });
 }

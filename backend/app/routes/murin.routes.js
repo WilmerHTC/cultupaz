@@ -1,9 +1,14 @@
 import { Router } from "express";
-import { registroTarea, mostrarTareas } from '../controllers/murin.controllers copy.js';
+import {
+    registroPublicacion, 
+    verPublicaciones,
+} from "../controllers/muroController.js";
+const router = Router();
 
-const routers = Router();
 
-routers.post("/aprendiz/tarea", registroTarea);
-routers.get("/aprendiz/tarea", mostrarTareas);
+router.post("/publicacion",registroPublicacion);
+router.get("/verPublicaciones", verPublicaciones);
 
-export default routers;
+
+
+export default router;
