@@ -12,7 +12,7 @@ const router = Router();
 
 router.post("/crearEvento", registroEvento);
 router.get("/mostrarEventos", mostrarEventos);
-router.get("/mostrarMisEventos/:idUsuario", mostrarMisEventos);
+router.get("/mostrarMisEventos/:id", mostrarMisEventos);
 router.put("/actualizarEvento/:id",updateEvento);
 
 
