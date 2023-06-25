@@ -240,11 +240,13 @@ function RegistroGestor() {
                     </div>
                   </div>
                   <div className="d-flex justify-content-center mt-2 text-center">
+                    
                     <button
                       type="button"
                       className=" btn-reg"
                       onClick={resgistrarGestor}
                     >
+
                       Registrarse
                     </button>
                   </div>
