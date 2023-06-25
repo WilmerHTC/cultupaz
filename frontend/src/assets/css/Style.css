@@ -1122,3 +1122,14 @@ section {
 .sugerencia .form-control{
   height: 20px !important;
 }
+
+.img-tam{
+width: 200px;
+height: 250px;
+object-fit: contain;
+}
+.bi-whatsapp{
+  color: #009970;
+  font-size: 30px;
+}
+

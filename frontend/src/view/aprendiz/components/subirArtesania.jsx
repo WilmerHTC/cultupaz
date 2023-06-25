@@ -42,7 +42,7 @@ function SubirArtesania() {
       if (response.status == 200) {
         Swal.fire({
           icon: "success",
-          title: "¡Todo se ve bien!",
+          title: "¡excelente!",
           text: response.data,
           showConfirmButton: false,
           timer: 1500,

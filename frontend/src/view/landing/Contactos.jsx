@@ -6,37 +6,32 @@ import axios from "axios";
 import { Button } from "react-bootstrap";
 
 function Contactos() {
- 
   const [descripcion, setDescripcion] = useState("");
 
-  const registroSugerencia= async () => {
-    if (
-      descripcion === "" 
+  const registroSugerencia = async (event) => {
+    event.preventDefault(); // Evitar el envío del formulario por defecto
 
-    ) {
+    if (descripcion === "") {
       Swal.fire({
-        icon: "error",
-        text: "rellena el campo por favor",
-        confirmButtonText: "Aceptar",
+        icon: "warning",
+        title: "",
+        text: "escribe algo antes de enviar",
       });
     } else {
-
       try {
-        var resul = await axios.post(
-          "http://localhost:7000/registroSugerencia",
-          {
-            descripcion: descripcion,
-          }
-        );
+        var resul = await axios.post("http://localhost:7000/registroSugerencia", {
+          descripcion: descripcion,
+        });
+
         if (resul.status === 200) {
           Swal.fire({
             icon: "success",
-            title: "",
+            title: "Enviado correctamente",
             text: resul.data,
-            confirmButtonText: "Aceptar",
-            timer: 3000,
+            showConfirmButton: false,
+            timer: 1500,
           }).then(() => {
-            window.location.reload(); // Recargar la página actual
+            window.location.reload();
           });
         }
       } catch (error) {
@@ -49,8 +44,6 @@ function Contactos() {
       }
     }
   };
-
-
 
   return (
     <div>
@@ -85,7 +78,7 @@ function Contactos() {
             <div className="col-md-6 mb-3">
               <div className="h-100 p-5 bg-contact2 border rounded-3">
                 <h2>Ayudanos a crecer</h2>
-                <form>
+                <form onSubmit={registroSugerencia}>
                   <h5>Motivados a mejorar</h5>
                   <p>Estamos felices de que hagas parte de nosotros </p>
                   <div className="input-group mt-4 sugerencia">
@@ -96,10 +89,9 @@ function Contactos() {
                       value={descripcion}
                       onChange={(ev) => setDescripcion(ev.target.value)}
                     ></textarea>
-                    <Button className="btn colorheader" type="button " onClick={registroSugerencia} >
+                    <Button className="btn colorheader" type="submit">
                       enviar
                     </Button>
-                  
                   </div>
                 </form>
               </div>
@@ -107,7 +99,7 @@ function Contactos() {
           </div>
           <div className="p-1 mb-4 bg-light rounded-3">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3986.073056581052!2d-76.56688342922655!3d2.482768651378657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e300410eb607c65%3A0x614545787e90bea6!2sSENA!5e0!3m2!1ses!2sco!4v1685117841923!5m2!1ses!2sco" 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3986.073056581052!2d-76.56688342922655!3d2.482768651378657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e300410eb607c65%3A0x614545787e90bea6!2sSENA!5e0!3m2!1ses!2sco!4v1685117841923!5m2!1ses!2sco"
               width="100%"
               height="450"
               allowfullscreen=""
@@ -117,7 +109,7 @@ function Contactos() {
           </div>
         </div>
       </main>
-      <CompFooter/>
+      <CompFooter />
     </div>
   );
 }

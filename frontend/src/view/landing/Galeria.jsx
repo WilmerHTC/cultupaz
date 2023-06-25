@@ -19,31 +19,46 @@ function Galeria() {
 
   console.log(artesanias);
 
+  const redirectToWhatsApp = (event) => {
+    event.preventDefault();
+    const phoneNumber = event.target.getAttribute('data-phone');
+    window.open('https://api.whatsapp.com/send?phone=' + phoneNumber, '_blank');
+  };
+  
   return (
     <div className="container mt-5 py-5">
       
-      <section className="container">
+      <section className="container ">
         <div className="mt-3">
-          <div className="row">
-            {artesanias.map((artesania) => {
-              const usuario = artesania.usuario; // Obtener el objeto de usuario de la artesanía
-              return (
-                <div className="col-lg-4" key={artesania.id}>
-                  
+         <div class="row ">
+          {artesanias.map((artesania, index) => {
+            const usuario = artesania.usuario;
+            return (
+              <div className="col-4" key={index}>
+                <div className="card">
+                
                   <img
                     src={artesania.img_uno}
-                    alt="Imagen de artesanía"
-                    className="img-fluid rounded mb-4"
+                    className="w-100 shadow-1-strong rounded img-tam "
+                    alt="Artesanía"
                   />
-                  <h3>{artesania.titulo}</h3>
-                  <p>{artesania.descripcion}</p>
-                  <p>Nombre: {usuario.nombre}</p> {/* Mostrar el nombre del usuario */}
-                  <p>Apellido: {usuario.apellido}</p> {/* Mostrar el apellido del usuario */}
-                  <p>Teléfono: {usuario.telefono}</p> {/* Mostrar el teléfono del usuario */}
+                  <div className="card-body">
+                    <h5 className="card-title text-center">{artesania.titulo}</h5>
+                    <p className="card-text">{artesania.descripcion}</p>
+                  </div>
+                  <div className="card-body d-flex justify-content-between ">
+                    <p className="list-group-item"><b>Hecha por: </b><br/> {usuario.nombre}</p>
+                    <a href="#" className="card-link" >
+                      <i className="bi bi-whatsapp" data-phone={usuario.telefono} onClick={redirectToWhatsApp}></i>
+                    </a>
+                  </div>
+                 
                 </div>
-              );
-            })}
-          </div>
+              </div>
+            );
+          })}
+</div>
+
         </div>
       </section>
 
