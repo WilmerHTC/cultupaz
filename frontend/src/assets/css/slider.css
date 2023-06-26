@@ -39,24 +39,24 @@
 	background-color: rgba(255, 85, 85, 0.5);
 }
 /* Estilos para las tarjetas */
-.card {
+.publicacion .card {
 	border-radius: 8px;
 	box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 	transition: transform 0.3s ease;
 	border: 1px solid transparent; /* Agregamos un borde transparente por defecto */
   }
   
-  .card:hover {
+  .publicacion .card:hover {
 	transform: scale(1.05);
 	border-color: #007bff; /* Cambiamos el color del borde al pasar el cursor */
   }
   
-  .card-title {
+  .publicacion .card-title {
 	font-size: 18px;
 	font-weight: bold;
   }
   
-  .card-text {
+  .publicacion .card-text {
 	font-size: 14px;
 	color: #666;
   }

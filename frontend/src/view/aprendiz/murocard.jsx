@@ -115,14 +115,16 @@ function MuroAprendiz() {
     }
   };
 
-  const eliminarPublicacion = async (idMuro) => {
+  const eliminarPublicacion = async (id) => {
     try {
-      const { data } = await axios.delete(`http://localhost:7000/publicacion/${idMuro}`);
-      if (data.success) {
+      console.log(id);
+      const response = await axios.delete(`http://localhost:7000/eliminarPublicacion/${id}`);
+     
+      if (response.status ===200) {
         Swal.fire({
           icon: "success",
           title: "",
-          text: data.message,
+          text:response.data,
           confirmButtonText: "Aceptar",
           timer: 3000,
         }).then(() => {
@@ -131,7 +133,7 @@ function MuroAprendiz() {
       } else {
         Swal.fire({
           icon: "error",
-          text: data.message,
+          text: response.data.message,
         });
       }
     } catch (error) {
@@ -167,20 +169,21 @@ function MuroAprendiz() {
     });
   };
 
-  const actualizarPublicacion = async (idMuro, titulo, descripcion) => {
+  const actualizarPublicacion = async (id, titulo, descripcion) => {
     try {
-      const { data } = await axios.put(
-        `http://localhost:7000/publicacion/${idMuro}`,
+      const response = await axios.put(
+        `http://localhost:7000/editarPublicacion/${id}`,
         {
           titulo: titulo,
           descripcion: descripcion,
         }
       );
-      if (data.success) {
+      console.log(response);
+      if (response.status === 200   ) {
         Swal.fire({
           icon: "success",
           title: "",
-          text: data.message,
+          text: response.data,
           confirmButtonText: "Aceptar",
           timer: 3000,
         }).then(() => {
@@ -189,7 +192,7 @@ function MuroAprendiz() {
       } else {
         Swal.fire({
           icon: "error",
-          text: data.message,
+          text: response.data.message,
         });
       }
     } catch (error) {
@@ -223,7 +226,7 @@ function MuroAprendiz() {
 
       <section id="events" className="events">
         <div className="container" data-aos="fade-up">
-          <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 p-2">
+          <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 p-2 publicacion">
             {verMuro
               .sort((a, b) => new Date(b.fecha_creacion) - new Date(a.fecha_creacion))
               .map((Muro, idMuro) => (
@@ -243,7 +246,7 @@ function MuroAprendiz() {
                               <Link
                                 className="dropdown-item"
                                 to={"#"}
-                                onClick={() => eliminarPublicacion(Muro._id)}
+                                onClick={() => eliminarPublicacion(Muro.idMuro)}
                               >
                                 Eliminar
                               </Link>
