@@ -36,7 +36,7 @@ function CompMenuGestor() {
 
                         <ul className="navbar-nav col-lg-8 justify-content-lg-around">
                             <li className="nav-item">
-                                <Link to={"/gestor"} className="nav-link ml" aria-current="page" >Inicio</Link>
+                                <Link to={"/gestor"} className="nav-link ml"  >Inicio</Link>
 
                             </li>
                             {/* <li className="nav-item">

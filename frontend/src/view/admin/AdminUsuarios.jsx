@@ -34,11 +34,10 @@ function AdminUsuarios() {
     }
   };
 
-
-  //inactivar usuarios
-  const inactivarUsuario = (id) => {
+  const desactivarSolicitud = async (id) => {
     Swal.fire({
-      text: "¡Estas Seguro de inactivar este usuario!",
+      title: "",
+      text: "¡Estas Seguro de inactivar este Usuario!",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -53,36 +52,7 @@ function AdminUsuarios() {
         if (resul.status === 200) {
           Swal.fire({
             icon: "success",
-            title: "Usuario Inactivado",
-            text: resul.data,
-            showConfirmButton: false,
-            timer: 1500,
-          }).then(() => {
-            window.location.reload();
-          });
-        }
-      }
-    });
-  };
-   //activar usuarios
-   const activarUsuario = (id) => {
-    Swal.fire({
-      text: "¡Estas Seguro de activar este usuario!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Si",
-      cancelButtonText: "Cancelar",
-    }).then(async (result) => {
-      if (result.isConfirmed) {
-        const resul = await axios.put(
-          `http://localhost:7000/activarUsuario/${id}`
-        );
-        if (resul.status === 200) {
-          Swal.fire({
-            icon: "success",
-            title: "Usuario activado",
+            title: "Muy bien",
             text: resul.data,
             showConfirmButton: false,
             timer: 1500,
@@ -155,8 +125,8 @@ function AdminUsuarios() {
                       <div className="row">
                         <div className="col-lg-12">
                           <div className="card">
-                            <div className="card-body">
-                              <h5 className="card-title">Usuarios aprendiz</h5>
+                            <div className="card-body usuario">
+                              <h5 className="card-title card-bg text-center">Usuarios aprendiz</h5>
                               <div className="table-responsive">
                                 <table className=" table datatable">
                                   <thead>
@@ -183,8 +153,7 @@ function AdminUsuarios() {
                                           <button
                                             type="button"
                                             className="btn btn-opt mx-1"
-                                            
-                                          >
+                                            onClick={()=>desactivarSolicitud(usuarios.idUsuario)}>
                                            Inactivar
                                           </button>
                                           </td>
@@ -216,8 +185,8 @@ function AdminUsuarios() {
                       <div className="row">
                         <div className="col-lg-12">
                           <div className="card">
-                            <div className="card-body">
-                              <h5 className="card-title">Usuarios gestores</h5>
+                            <div className="card-body usuario">
+                              <h5 className="card-title card-bg text-center">Usuarios gestores</h5>
                               <div className="table-responsive">
                               <table className="table datatable">
                                 <thead>
@@ -243,7 +212,7 @@ function AdminUsuarios() {
                                         <td className="text-center">
                                             <button type="button" 
                                               className="btn btn-opt mx-1" 
-                                              onClick={()=>inactivarUsuario(usuarios.idUsuario)}>
+                                              onClick={()=>desactivarSolicitud(usuarios.idUsuario)}>
                                               Inactivar
                                             </button>
                                           </td>
