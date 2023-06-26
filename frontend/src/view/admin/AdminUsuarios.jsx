@@ -178,7 +178,7 @@ function AdminUsuarios() {
                                           <td>{usuarios.apellidos}</td>
                                           <td>{usuarios.telefono}</td>
                                           <td>{usuarios.ficha}</td>
-                                          <td>{usuarios. Género}</td>
+                                          <td>{usuarios.genero}</td>
                                           <td className="text-center">
                                           <button
                                             type="button"
@@ -226,7 +226,7 @@ function AdminUsuarios() {
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Apellido</th>
                                     <th scope="col">telefono</th>
-                                    <th scope="col"> Género</th>
+                                    <th scope="col">Género</th>
                                     <th scope="col">correo</th>
                                     <th scope="col"className="text-center">Opciones</th>
                                   </tr>
@@ -238,7 +238,7 @@ function AdminUsuarios() {
                                         <td>{usuarios.nombres}</td>
                                         <td>{usuarios.apellidos}</td>
                                         <td>{usuarios.telefono}</td>
-                                        <td>{usuarios. Género}</td>
+                                        <td>{usuarios.genero}</td>
                                         <td>{usuarios.correo}</td>
                                         <td className="text-center">
                                             <button type="button" 

@@ -57,7 +57,7 @@ function Galeria() {
               </div>
             );
           })}
-</div>
+        </div>
 
         </div>
       </section>

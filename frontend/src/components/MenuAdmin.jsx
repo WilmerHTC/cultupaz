@@ -24,10 +24,10 @@ function CompMenuAdmin() {
           <Link to={"/admin"} className="logo d-flex align-items-center m-2">
             <img src={Logo} alt="logo" />
           </Link>
-          <i
+          {/* <i
             class="bi bi-list toggle-sidebar-btn ms-5 "
             onClick={toggleSidebar}
-          ></i>
+          ></i> */}
         </div>
 
         <nav className="header-nav ms-auto">
