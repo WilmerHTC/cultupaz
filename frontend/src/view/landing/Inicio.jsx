@@ -26,7 +26,7 @@ import imgempresa8 from "../../assets/img/Empresa8.jpg";
 
 
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import { Carousel } from 'react-responsive-carousel';
 import { Slide } from 'react-3d-carousel';
@@ -38,28 +38,48 @@ import svg2 from "../../assets/svg/undraw_online_chat_re_c4lx.svg";
 import svg3 from "../../assets/svg/undraw_fans_re_cri3.svg";
 import svg4 from "../../assets/svg/undraw_creative_woman_re_u5tk.svg";
 import CompFooter from "../../components/Footer";
-import { useEffect, useState } from "react";
+
 import axios from "axios";
 
 const Inicio = () => {
+  const slides = [
+    {
+      img: '/',
+      // otras propiedades opcionales, como título o descripción
+    },
+    {
+      img: '/ruta/de/imagen2.jpg',
+      // otras propiedades opcionales, como título o descripción
+    },
+    // Agrega más diapositivas según sea necesario
+  ];
+
+  //Modal
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   // const [ setShow] = useState(false);
+  const [artesanias, setArtesanias] = useState([]);
 
   useEffect(() => {
     cargarArtesanias();
   }, []);
 
-  const showAlert = () => {
-    Swal.fire({
-      text: "Para conocer mas artesanias registrate o inicia sesión",
-      icon: "warning",
-      timer: 3000,
-      confirmButtonText: "Aceptar",
-      cancelButtonText: "Cancelar",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        // handleClose(); // Cerrar el modal al hacer clic en "Aceptar"
-      }
-    });
+  const cargarArtesanias = async () => {
+    try {
+      const resul = await axios.get("http://localhost:7000/artesanias");
+      setArtesanias(resul.data);
+    } catch (error) {
+      console.log("Ocurrio un error");
+    }
+  };
+
+  const redirectToWhatsApp = (event) => {
+    event.preventDefault();
+    const phoneNumber = event.target.getAttribute('data-phone');
+    window.open('https://api.whatsapp.com/send?phone=' + phoneNumber, '_blank');
   };
 
   function shuffle(array) {
@@ -78,6 +98,7 @@ const Inicio = () => {
     return array;
   }
   const artesaniasAleatorias = shuffle(artesanias).slice(0, 3);
+
 
   return (
     <div>
