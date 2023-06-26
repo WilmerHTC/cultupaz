@@ -182,13 +182,13 @@ function AdminRegistro(){
                           Tarjeta de identidad
                         </option>
                         <option value="CC" className="text-center">
-                          Cedula de ciudadania
+                        Cédula  de ciudadania
                         </option>
                       </select>
                     </div>
                     <div className="col-sm-4 mb-3">
                       <label className="form-label link" for="">
-                        Numero identificación
+                        Número identificación
                       </label>
                       <input
                         type="number"

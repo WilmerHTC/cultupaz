@@ -196,10 +196,10 @@ function RegistroUser() {
                           Tarjeta de identidad
                         </option>
                         <option value="CC" className="text-center">
-                          Cedula de ciudadania
+                          Cédula de ciudadania
                         </option>
                         <option value="CE" className="text-center">
-                          Cedula de extrangeria
+                        Cédula  de extrangeria
                         </option>
                       </select>
                     </div>
