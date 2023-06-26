@@ -102,6 +102,7 @@ import "../../assets/css/Juegos.css"
             {/* 1. Header  */}
             <h1>Quiz sobre PAZ</h1>
             <h2>Veamos que tanto sabes sobre la paz :D</h2>
+            
       
             {/* 2. Current Score  */}
             <h2>Puntaje: {score}</h2>
@@ -142,7 +143,10 @@ import "../../assets/css/Juegos.css"
                 </ul>
               </div>
             )}
+            <h2>En la parte de Cultura y Paz encontraras informacion con la cual se </h2>
+                <h2>te facilitara responder las preguntas</h2>
           </div>
+          
         );
       };
       
