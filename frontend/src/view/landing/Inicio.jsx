@@ -7,6 +7,11 @@ import imgevento1 from "../../assets/img/Artesania1.jpg";
 import imgmovil from "../../assets/img/Movil.png";
 import imgmovil2 from "../../assets/img/Movil2.png";
 import imgandroid from "../../assets/img/Play.png";
+
+import app1 from "../../assets/img/app1.png";
+import app2 from "../../assets/img/app2.png";
+import app3 from "../../assets/img/app3.png";
+
 import imgapple from "../../assets/img/app.png";
 import imgevento2 from "../../assets/img/Artesania3.jpg";
 import imgevento3 from "../../assets/img/Artesania2.jpg";
@@ -23,6 +28,14 @@ import imgempresa6 from "../../assets/img/Empresa6.jpg";
 import imgempresa7 from "../../assets/img/Empresa7.jpg";
 import imgempresa8 from "../../assets/img/Empresa8.jpg";
 
+
+
+import React, { useState } from 'react';
+import { Modal, Button } from 'react-bootstrap';
+import { Carousel } from 'react-responsive-carousel';
+import { Slide } from 'react-3d-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css'
+
 // import img svg
 import svg1 from "../../assets/svg/undraw_gaming_re_cma2.svg";
 import svg2 from "../../assets/svg/undraw_online_chat_re_c4lx.svg";
@@ -32,6 +45,25 @@ import CompFooter from "../../components/Footer";
 import Swal from "sweetalert2";
 
 const Inicio = () => {
+
+  const slides = [
+    {
+      img: '/',
+      // otras propiedades opcionales, como título o descripción
+    },
+    {
+      img: '/ruta/de/imagen2.jpg',
+      // otras propiedades opcionales, como título o descripción
+    },
+    // Agrega más diapositivas según sea necesario
+  ];
+
+  //Modal
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   // const [ setShow] = useState(false);
 
   // const handleClose = () => setShow(false);
@@ -48,6 +80,9 @@ const Inicio = () => {
         // handleClose(); // Cerrar el modal al hacer clic en "Aceptar"
       }
     });
+    //Funcion del carrusel
+
+
   };
   return (
     <div>
@@ -66,6 +101,47 @@ const Inicio = () => {
           </div>
         </section>
         {/* services */}
+
+
+
+        <>
+
+
+          <Modal show={show} onHide={handleClose} className="modal-lg">
+            <Modal.Header closeButton >
+              <Modal.Title>Detalles</Modal.Title>
+            </Modal.Header>
+            <Modal.Body >
+              <div>
+
+                <div className="lineapr22 container d-flex justify-content-start">
+                  <img alt="movilimg" src={app1} />
+
+                </div>
+
+                <div className="lineapr22 container d-flex justify-content-end">
+                  <img alt="movilimg" src={app2} />
+
+                </div>
+                <div className="lineapr22 container d-flex justify-content-start">
+                  <img alt="movilimg" src={app3} />
+
+                </div>
+              </div>
+
+
+
+
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose}>
+                Cerrar
+              </Button>
+            </Modal.Footer>
+          </Modal>
+        </>
+
+
         <section id="services" className="services">
           <br></br>
           <br></br>
@@ -404,7 +480,7 @@ const Inicio = () => {
           <div className="containergestor text-center adicional_rp container">
             <h1>¿En que influye la cultura y la paz en la sociedad?</h1>
             <div className="arreglo">
-              <p className=" text-center  imporpc borde_encima">
+              <p className=" text-center  imporpc borde_encima " style={{ fontSize: '17px' }}>
                 La cultura de paz fomenta una serie de valores, actitudes y
                 comportamientos como respeto, tolerancia, igualdad, comprensión,
                 solidaridad, diálogo, negociación y consenso, que fortalecen y
@@ -424,226 +500,7 @@ const Inicio = () => {
               </li>
             </div>
           </div>
-          <div className="todo ">
-            <div className="containergestor todo2  ">
-              <h1>Gestores de paz destacados</h1>
-              <div className="boxesgestor">
-                <div className="boxgestor">
-                  <p className="icon">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="150"
-                      height="150"
-                      fill="currentColor"
-                      className="bi bi-person-circle positioncir"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-                      <path
-                        fill-rule="evenodd"
-                        d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
-                      />
-                    </svg>
-                  </p>
-                  <h2 className="positionnombre">
-                    Stevan<br></br> Ortiz
-                  </h2>
-                  <div className="form">
-                    <p className="clasificacion">
-                      <input
-                        id="radio1"
-                        type="radio"
-                        name="estrellas"
-                        value="5"
-                      ></input>
-                      <label for="radio1">★</label>
-                      <input
-                        id="radio2"
-                        type="radio"
-                        name="estrellas"
-                        value="4"
-                      ></input>
-                      <label for="radio2">★</label>
-                      <input
-                        id="radio3"
-                        type="radio"
-                        name="estrellas"
-                        value="3"
-                      ></input>
-                      <label for="radio3">★</label>
-                      <input
-                        id="radio4"
-                        type="radio"
-                        name="estrellas"
-                        value="2"
-                      ></input>
-                      <label for="radio4">★</label>
-                      <input
-                        id="radio5"
-                        type="radio"
-                        name="estrellas"
-                        value="1"
-                      ></input>
-                      <label for="radio5">★</label>
-                    </p>
-                  </div>
-                  <br></br>
-                  Caracterizados por su capacidad de dialogar y motivar a los
-                  compañeros, en la búsqueda de un acuerdo común en las
-                  diferentes formas de pensar o actuar.
-                  <br></br>
-                  <br></br>
-                  <div className=" text-center iconos_redes">
-                    <i className="bi bi-facebook icoh "></i>
-                    <i className="bi bi-twitter icoh"></i>
-                    <i className="bi bi-instagram icoh"></i>
-                  </div>
-                </div>
-                <div className="boxgestor">
-                  <p className="icon">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="150"
-                      height="150"
-                      fill="currentColor"
-                      className="bi bi-person-circle positioncir"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-                      <path
-                        fill-rule="evenodd"
-                        d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
-                      />
-                    </svg>
-                  </p>
-                  <h2 className="positionnombre">
-                    Sara<br></br> Lopez
-                  </h2>
-                  <div className="form">
-                    <p className="clasificacion">
-                      <input
-                        id="radio1"
-                        type="radio"
-                        name="estrellas"
-                        value="5"
-                      ></input>
-                      <label for="radio1">★</label>
-                      <input
-                        id="radio2"
-                        type="radio"
-                        name="estrellas"
-                        value="4"
-                      ></input>
-                      <label for="radio2">★</label>
-                      <input
-                        id="radio3"
-                        type="radio"
-                        name="estrellas"
-                        value="3"
-                      ></input>
-                      <label for="radio3">★</label>
-                      <input
-                        id="radio4"
-                        type="radio"
-                        name="estrellas"
-                        value="2"
-                      ></input>
-                      <label for="radio4">★</label>
-                      <input
-                        id="radio5"
-                        type="radio"
-                        name="estrellas"
-                        value="1"
-                      ></input>
-                      <label for="radio5">★</label>
-                    </p>
-                  </div>
-                  <br></br>
-                  Caracterizados por su capacidad de dialogar y motivar a los
-                  compañeros, en la búsqueda de un acuerdo común en las
-                  diferentes formas de pensar o actuar.
-                  <br></br>
-                  <br></br>
-                  <div className=" text-center iconos_redes">
-                    <i className="bi bi-facebook icoh "></i>
-                    <i className="bi bi-twitter icoh"></i>
-                    <i className="bi bi-instagram icoh"></i>
-                  </div>
-                </div>
-                <div className="boxgestor">
-                  <p className="icon">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="150"
-                      height="150"
-                      fill="currentColor"
-                      className="bi bi-person-circle positioncir"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-                      <path
-                        fill-rule="evenodd"
-                        d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
-                      />
-                    </svg>
-                  </p>
-                  <h2 className="positionnombre">
-                    Andres<br></br> Jimenez
-                  </h2>
-                  <div className="form">
-                    <p className="clasificacion">
-                      <input
-                        id="radio1"
-                        type="radio"
-                        name="estrellas"
-                        value="5"
-                      ></input>
-                      <label for="radio1">★</label>
-                      <input
-                        id="radio2"
-                        type="radio"
-                        name="estrellas"
-                        value="4"
-                      ></input>
-                      <label for="radio2">★</label>
-                      <input
-                        id="radio3"
-                        type="radio"
-                        name="estrellas"
-                        value="3"
-                      ></input>
-                      <label for="radio3">★</label>
-                      <input
-                        id="radio4"
-                        type="radio"
-                        name="estrellas"
-                        value="2"
-                      ></input>
-                      <label for="radio4">★</label>
-                      <input
-                        id="radio5"
-                        type="radio"
-                        name="estrellas"
-                        value="1"
-                      ></input>
-                      <label for="radio5">★</label>
-                    </p>
-                  </div>
-                  <br></br>
-                  Caracterizados por su capacidad de dialogar y motivar a los
-                  compañeros, en la búsqueda de un acuerdo común en las
-                  diferentes formas de pensar o actuar.
-                  <br></br>
-                  <br></br>
-                  <div className=" text-center iconos_redes">
-                    <i className="bi bi-facebook icoh "></i>
-                    <i className="bi bi-twitter icoh"></i>
-                    <i className="bi bi-instagram icoh"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+
         </section>
         <div className="contenedormovil">
           <em>
@@ -651,112 +508,114 @@ const Inicio = () => {
               Posibilidad móvil
             </h3>
           </em>
-          <div className="text-center d-flex  ">
+          <div className="text-center d-flex container  ">
+
             <div className="lineapr22">
               <img alt="movilimg" src={imgmovil} className="imgmovil" />
 
             </div>
-
             <div className="d-flex lineapr23 ">
-              <h1 className="tamañoh">80%</h1>
-              <h1 className="tamañoh2">/</h1>
-              <h1 className="tamañoh3">20%</h1>
+
               <div>
-                <h1 className="tamañoh4">Web</h1>
-                <h1 className="tamañoh5">Móvil</h1>
-              </div>
-              <br></br>
-              <div className="descargas d-flex">
-                <a className="etiqa">
-                  <span>
-                    <img
-                      src={imgandroid}
-                      alt="imgandro"
-                      className="imgandro card-img-top"
-                    />
-                  </span>
-                </a>
-                <a>
-                  <span>
-                    <img
-                      src={imgapple}
-                      alt="imgapple"
-                      className="imgapple card-img-top"
-                    />
-                  </span>
-                </a>
+
+                <h1 className="tamañoh5">¡Estamos emocionados de anunciar  el lanzamiento de nuestra apkicacion movil, una herramienta innovadora diseñada para brindarte una experiencia satisfactoria y de libre accesibilidad en tu dispositivo móvil.
+                  Nuestra aplicacion se ha desarrollado con ell objetivo de simplificar tu vida digital. Ya sea que necesites acceder a tu cuenta o registrate, acceder a tus datos, ver información útil sobre cultura y paz, compartir lo que piensas, entre otros, todo esto con una intertaz intuitiva para ofrecerte una maxima comodidad y eficiencia.
+                  Descarga nuestra apkicación en PlayStore o AppStore y únete a la posibilidad móvil.!
+                  <div>
+                    <Button variant="primary btnmy" onClick={handleShow}>
+                      Más caracteristicas
+                    </Button>
+                  </div>
+                  <img
+                    src={imgandroid}
+                    alt="imgandro"
+                    className="imgandro card-img-top"
+                  />
+                  <img
+                    src={imgapple}
+                    alt="imgapple"
+                    className="imgapple card-img-top"
+                  />
+                </h1>
               </div>
             </div>
           </div>
+
+
+
         </div>
         <br></br>
         <br></br>
         <h2 className="color_h3 text-center">Nuestros aliados</h2>
-        <div className="row row22 row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 client-logo-style-01 align-items-center">
-          <div className="col text-center margin-30px-bottom sm-margin-15px-bottom">
-            <div className="client-box padding-70px-all ">
-              <a href="#">
-                <img className="aliadopos" src={imgempresa1} alt="" />
-              </a>
+        <div className="text-center container tamañocarousel">
+          <Carousel interval={3000} autoPlay={true} infiniteLoop={true}>
+            <div className="col text-center margin-30px-bottom sm-margin-15px-bottom">
+              <div className="client-box padding-70px-all ">
+                <a href="#">
+                  <img className="aliadopos" src={imgempresa1} alt="" />
+                </a>
+              </div>
             </div>
-          </div>
+            <div className="col text-center margin-30px-bottom sm-margin-15px-bottom">
+              <div className="client-box padding-15px-all ">
+                <a href="#">
+                  <img className="aliadopos" src={imgempresa2} alt="" />
+                </a>
+              </div>
+            </div>
 
-          <div className="col text-center margin-30px-bottom sm-margin-15px-bottom">
-            <div className="client-box padding-15px-all ">
-              <a href="#">
-                <img className="aliadopos" src={imgempresa2} alt="" />
-              </a>
+            <div className="col text-center margin-30px-bottom sm-margin-15px-bottom">
+              <div className="client-box padding-15px-all ">
+                <a href="#">
+                  <img className="aliadopos" src={imgempresa3} alt="" />
+                </a>
+              </div>
             </div>
-          </div>
 
-          <div className="col text-center margin-30px-bottom sm-margin-15px-bottom">
-            <div className="client-box padding-15px-all ">
-              <a href="#">
-                <img className="aliadopos" src={imgempresa3} alt="" />
-              </a>
+            <div className="col text-center margin-30px-bottom sm-margin-15px-bottom">
+              <div className="client-box padding-15px-all ">
+                <a href="#">
+                  <img className="aliadopos" src={imgempresa4} alt="" />
+                </a>
+              </div>
             </div>
-          </div>
 
-          <div className="col text-center margin-30px-bottom sm-margin-15px-bottom">
-            <div className="client-box padding-15px-all ">
-              <a href="#">
-                <img className="aliadopos" src={imgempresa4} alt="" />
-              </a>
+            <div className="col text-center md-margin-30px-bottom sm-margin-15px-bottom">
+              <div className="client-box padding-15px-all ">
+                <a href="#">
+                  <img className="aliadopos" src={imgempresa5} alt="" />
+                </a>
+              </div>
             </div>
-          </div>
 
-          <div className="col text-center md-margin-30px-bottom sm-margin-15px-bottom">
-            <div className="client-box padding-15px-all ">
-              <a href="#">
-                <img className="aliadopos" src={imgempresa5} alt="" />
-              </a>
+            <div className="col text-center md-margin-30px-bottom sm-margin-15px-bottom">
+              <div className="client-box padding-15px-all ">
+                <a href="#">
+                  <img className="aliadopos" src={imgempresa6} alt="" />
+                </a>
+              </div>
             </div>
-          </div>
 
-          <div className="col text-center md-margin-30px-bottom sm-margin-15px-bottom">
-            <div className="client-box padding-15px-all ">
-              <a href="#">
-                <img className="aliadopos" src={imgempresa6} alt="" />
-              </a>
+            <div className="col text-center xs-margin-15px-bottom">
+              <div className="client-box padding-15px-all ">
+                <a href="#">
+                  <img className="aliadopos" src={imgempresa7} alt="" />
+                </a>
+              </div>
             </div>
-          </div>
 
-          <div className="col text-center xs-margin-15px-bottom">
-            <div className="client-box padding-15px-all ">
-              <a href="#">
-                <img className="aliadopos" src={imgempresa7} alt="" />
-              </a>
+            <div className="col text-center">
+              <div className="client-box padding-15px-all ">
+                <a href="#">
+                  <img className="aliadopos" src={imgempresa8} alt="" />
+                </a>
+              </div>
             </div>
-          </div>
-
-          <div className="col text-center">
-            <div className="client-box padding-15px-all ">
-              <a href="#">
-                <img className="aliadopos" src={imgempresa8} alt="" />
-              </a>
-            </div>
-          </div>
+          </Carousel>
         </div>
+
+
+
 
         <div Style="height: auto;">
           <div id="lead" className="ng-star-inserted">

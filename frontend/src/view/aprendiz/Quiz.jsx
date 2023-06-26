@@ -11,7 +11,7 @@ import "../../assets/css/Juegos.css"
           {
             text: "1.¿Qué es la PAZ TOTAL?",
             options: [
-              { id: 0, text: "Un concepto creado por el gobierno de Gustavo Petro para convertir la búsqueda de la paz en una política de Estado.", isCorrect: true },
+              { id: 0, text: "Un concepto creado por Gustavo Petro para convertir la búsqueda de la paz en una política de Estado.", isCorrect: true },
               { id: 1, text: "Una estrategia militar para derrotar a grupos armados ilegales en Colombia.", isCorrect: false },
               { id: 2, text: "Una campaña publicitaria del gobierno colombiano para mejorar su imagen.", isCorrect: false },
             ],
@@ -96,15 +96,15 @@ import "../../assets/css/Juegos.css"
         };
       
         return (
-          <div className="App">
+          <div className="App container">
       
 
             {/* 1. Header  */}
-            <h1>Quiz sobre PAZ</h1>
-            <h2>Veamos que tanto sabes sobre la paz :D</h2>
+            <h1 className="color_juegos ">Quiz sobre PAZ</h1>
+            <h2 className="color_juegos "> Veamos que tanto sabes sobre la paz :D</h2>
       
             {/* 2. Current Score  */}
-            <h2>Puntaje: {score}</h2>
+            <h2 className="color_juegos ">Puntaje: {score}</h2>
       
             {/* 3. Show results or show the question game  */}
             {showResults ? (
@@ -115,7 +115,7 @@ import "../../assets/css/Juegos.css"
                   {score} de {questions.length} correctas - (
                   {(score / questions.length) * 100}%)
                 </h2>
-                <button className="button-restartgame" onClick={() => restartGame()}>Reiniciar juego</button><br></br>
+                <button className="button-restartgame" onClick={() => restartGame()}>Reiniciar juego</button>
                 <a href="/Aprendiz/Juegos" className="button-restartgame">Volver</a>
               </div>
             ) : (

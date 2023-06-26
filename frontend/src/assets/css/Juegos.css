@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  margin-top: 7%;
+  margin-top: 10%;
   
 }
 
@@ -12,7 +12,7 @@
   
 
   /* Dimensions  */
-  width: 80%; /* Can be in percentage also. */
+  width: 100%; /* Can be in percentage also. */
   height: auto;
 
   /* Visual  */
@@ -27,13 +27,25 @@
 
 .optionn {
   margin-top: 8px;
-  background-color: rgb(133, 133, 133);
+  background-color: #A0AEB0;
   margin-right:30px;
   list-style: none;
   padding: 16px;
   border: 3px solid white;
-  border-radius: 20px;
+  border-radius: 10px;
   font-size: 20px;
+  color:#06192c;
+  height: 75px;
+  transition: 0.7s;
+}
+
+.optionn:hover {
+
+  background-color: #D9C5A0;
+  color: #06192c;
+  transition: 0.7s;
+
+
 }
 
 
@@ -73,29 +85,30 @@
   font-size: 16px;
   font-weight: bold;
   border-radius: 24px;
+  margin: 0 20px;
 }
 
 .containerj{
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 250px;
+  margin-top: 150px;
 }
 
 
 .imgCuiz{
-  width: 90%;
-  margin-top: 10px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   border-radius: 15px;
+  margin-bottom: 50px;
 }
 .imgParejas {
-  width: 90%;
-  margin-top: 10px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
-  border-radius: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
 
 .juego1 {
@@ -104,7 +117,7 @@
   position: relative;
   top: -90px;
   transition: 1s;
-  box-shadow: 0 0 30px #05AFF2;
+  box-shadow: 0 0 30px #0c5e50;
 
 }
 .juego1:hover{
@@ -118,7 +131,7 @@
   margin-left: 110px;
   top: -90px;
   transition: 1s;
-  box-shadow: 0 0 30px #A0D94A;
+  box-shadow: 0 0 30px #0c5e50;
 
 
 }
@@ -152,4 +165,22 @@
 .botonesjuegos .textbtngamer:hover {
   text-shadow: 1px 1px 2px rgb(247, 246, 246), 0 0 1em rgb(203, 203, 210), 0 0 0.2em rgb(79, 79, 202);
   color: white;
+}
+
+.color_juegos {
+  text-decoration: none;
+  font-size: 30px;
+  font-weight: 700;
+  padding-bottom: 0;
+  color: #3b434a;
+  position: relative;
+  z-index: 2;
+}
+
+.botonesjuegos2 {
+  margin-top: 70px;
+}
+
+.arreglo4{
+  margin-top: 120px;
 }

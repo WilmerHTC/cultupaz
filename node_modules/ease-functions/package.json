@@ -1,0 +1,24 @@
+{
+  "name": "ease-functions",
+  "version": "0.0.1",
+  "description": "Robert Penner easing functions",
+  "main": "ease-functions.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bobiblazeski/ease-functions.git"
+  },
+  "keywords": [
+    "easing",
+    "ease",
+	"tween"
+  ],
+  "author": "Slobodan Blazeski <slobodan.blazeski@gmail.com> (slobodanblazeski.blogspot.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bobiblazeski/ease-functions/issues"
+  },
+  "homepage": "https://github.com/bobiblazeski/ease-functions#readme"
+}
