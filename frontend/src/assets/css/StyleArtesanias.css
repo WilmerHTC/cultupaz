@@ -123,3 +123,12 @@
   color: #fff;
   border: 1px solid #fff;
 }
+.btn-eliminar{
+  background: #26a77c;
+  color: #fff;
+}
+.btn-eliminar:hover{
+  background-color: #972a2a;
+  color: #fff;
+  border: 1px solid #fff;
+}

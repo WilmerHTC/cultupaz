@@ -176,7 +176,7 @@ function RegistroGestor() {
                           Tarjeta de identidad
                         </option>
                         <option value="CC" className="text-center">
-                          Cedula de ciudadania
+                        Cédula de ciudadania
                         </option>
                       </select>
                     </div>

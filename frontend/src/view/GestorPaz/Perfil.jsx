@@ -50,7 +50,7 @@ function GestorPerfil (){
                             <ul className="nav nav-tabs nav-tabs-bordered">
 
                                 <li className="nav-item">
-                                <button className="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Descripcion</button>
+                                <button className="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Descripción</button>
                                 </li>
 
                                 <li className="nav-item">
@@ -65,10 +65,10 @@ function GestorPerfil (){
                             <div className="tab-content pt-2">
 
                                 <div className="tab-pane fade show active profile-overview" id="profile-overview">
-                                <h5 className="card-title">Sobre mi</h5>
+                                <h5 className="card-title">Sobre mí</h5>
                                 <p className="small fst-italic"></p>
 
-                                <h5 className="card-title">Informacion Perfil</h5>
+                                <h5 className="card-title">Información Perfil</h5>
 
                                 <div className="row">
                                     <div className="col-lg-3 col-md-4 label ">Nombres</div>
@@ -81,13 +81,13 @@ function GestorPerfil (){
                                 </div>
 
                                 <div className="row">
-                                    <div className="col-lg-3 col-md-4 label">Direccion</div>
+                                    <div className="col-lg-3 col-md-4 label">Dirección</div>
                                     <div className="col-lg-9 col-md-8">La paz</div>
                                 </div>
 
                                 <div className="row">
                                     <div className="col-lg-3 col-md-4 label">celular</div>
-                                    <div className="col-lg-9 col-md-8">314256783</div>
+                                    <div className="col-lg-9 col-md-8">3142567830</div>
                                 </div>
 
                                 <div className="row">
@@ -113,27 +113,27 @@ function GestorPerfil (){
                                     </div>
 
                                     <div className="row mb-3">
-                                    <label for="fullName" className="col-md-4 col-lg-3 col-form-label">Nombres</label>
+                                    <label for="fullName" className="col-md-4 col-lg-3 col-form-label">Nombre</label>
                                     <div className="col-md-8 col-lg-9">
                                         <input name="fullName" type="text" className="form-control" id="fullName" value="daniel"/>
                                     </div>
                                     </div>
                                     <div className="row mb-3">
-                                    <label for="fullName" className="col-md-4 col-lg-3 col-form-label">Apellidos</label>
+                                    <label for="fullName" className="col-md-4 col-lg-3 col-form-label">Apellido</label>
                                     <div className="col-md-8 col-lg-9">
                                         <input name="fullName" type="text" className="form-control" id="fullName" value="dorado"/>
                                     </div>
                                     </div>
 
                                     <div className="row mb-3">
-                                    <label for="about" className="col-md-4 col-lg-3 col-form-label">Sobre mi</label>
+                                    <label for="about" className="col-md-4 col-lg-3 col-form-label">Sobre mí</label>
                                     <div className="col-md-8 col-lg-9">
                                         <textarea name="about" className="form-control" id="about" ></textarea>
                                     </div>
                                     </div>
 
                                     <div className="row mb-3">
-                                    <label for="Address" className="col-md-4 col-lg-3 col-form-label">Direccion</label>
+                                    <label for="Address" className="col-md-4 col-lg-3 col-form-label">Dirección</label>
                                     <div className="col-md-8 col-lg-9">
                                         <input name="address" type="text" className="form-control" id="Address" value="la paz"/>
                                     </div>

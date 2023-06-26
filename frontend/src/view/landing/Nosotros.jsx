@@ -73,7 +73,7 @@ function Nosotros() {
                 <div className="timeline-panel">
                   <div className="timeline-heading">
                     {/* <h4>2009-2011</h4> */}
-                    <h4 className="subheading">Mision</h4>
+                    <h4 className="subheading">Misión</h4>
                   </div>
                   <div className="timeline-body">
                     <p className="text-muted">
@@ -98,7 +98,7 @@ function Nosotros() {
                 <div className="timeline-panel">
                   <div className="timeline-heading">
                     {/* <h4>March 2011</h4> */}
-                    <h4 className="subheading">Vision</h4>
+                    <h4 className="subheading">Visión</h4>
                   </div>
                   <div className="timeline-body">
                     <p className="text-muted">
@@ -124,7 +124,7 @@ function Nosotros() {
               <div className="col-lg-12">
                 <div className="section-title" data-aos="fade-right">
                   <h2>Nuestro equipo</h2>
-                  <p>El mejor equivo puesto a su disposicion</p>
+                  <p>El mejor equivo puesto a su disposición</p>
                 </div>
               </div>
 

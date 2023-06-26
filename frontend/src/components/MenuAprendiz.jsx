@@ -57,13 +57,13 @@ function CompMenuAprendiz() {
 
               <li className="nav-item">
                 <Link to={"/aprendiz/galeria"} className="nav-link ">
-                  Galería
+                GALERÍA
                 </Link>
               </li>
-             
-               <li className="nav-item">
+              <li className="nav-item">
+                {/* <Link to={"/muroaprendiz"} className="nav-link "  >muro</Link> */}
                 <Link to={"/aprendiz/muro"} className="nav-link ">
-                  Muro
+                  muro
                 </Link>
               </li>
               <li className="nav-item">
@@ -78,7 +78,7 @@ function CompMenuAprendiz() {
               </li>
               <li className="nav-item">
                 <Link to={"/aprendiz/culturaypaz"} className="nav-link ">
-                  Cultura y Paz
+                  Cultura y paz
                 </Link>
               </li>
             </ul>

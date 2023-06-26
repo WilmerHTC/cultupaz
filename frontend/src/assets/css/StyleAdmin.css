@@ -450,9 +450,8 @@
     align-items: center;
     font-size: 15px;
     font-weight: 600;
-    color: #4154f1;
+    color: #111b7a;
     transition: 0.3;
-    background: #f6f9ff;
     padding: 10px 15px;
     border-radius: 4px;
   }
@@ -460,25 +459,26 @@
   .sidebar-nav .nav-link i {
     font-size: 16px;
     margin-right: 10px;
-    color: #4154f1;
+    
+  }
+  .sidebar-nav .nav-link.active {
+    
+    color: #fff;
+    background: #061535;
+  }
+  .sidebar-nav i.active {
+    color: #fff;
+    background: #1e3152;
   }
   
-  .sidebar-nav .nav-link.collapsed {
-    color: #012970;
-    background: #fff;
-  }
-  
-  .sidebar-nav .nav-link.collapsed i {
-    color: #899bbd;
-  }
-  
+ 
   .sidebar-nav .nav-link:hover {
-    color: #4154f1;
-    background: #f6f9ff;
+    color: #f4f5f8;
+    background: #16284e;
   }
   
   .sidebar-nav .nav-link:hover i {
-    color: #4154f1;
+    color: #cccdd8;
   }
   
   .sidebar-nav .nav-link .bi-chevron-down {
@@ -614,14 +614,23 @@
 
 
 
- 
- 
 
   
-
+ .card-bg{
+  background: #1ea583;
+  color: #fff;
+  border-radius: 5px;
   
+ }
+ .solicitudes .card-body{
+  border-radius: 5px;
+  box-shadow: 0px 0 3px #35c7a2;
 
-  
+ }
 
+ .usuario .card-bg{
+  background: #0a4474;
+  color: #fff;
+  border-radius: 5px;
   
- 
+ }

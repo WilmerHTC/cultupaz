@@ -34,7 +34,7 @@ function Galeria() {
           {artesanias.map((artesania, index) => {
             const usuario = artesania.usuario;
             return (
-              <div className="col-4" key={index}>
+              <div className="col-xl-4 d-flex align-items-stretch eventoone" key={index}>
                 <div className="card">
                 
                   <img
@@ -57,7 +57,7 @@ function Galeria() {
               </div>
             );
           })}
-</div>
+        </div>
 
         </div>
       </section>

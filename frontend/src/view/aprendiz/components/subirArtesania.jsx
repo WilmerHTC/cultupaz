@@ -13,6 +13,23 @@ function SubirArtesania() {
   };
 
   const subirImg = async () => {
+
+    if (!titulo & !descripcion  ) {
+      // Verificar si el campo de imagen está vacío
+      Swal.fire({
+        icon: "warning",
+        text: "Todos los campos son obligatorios",
+      });
+      return; // Detener la ejecución de la función si no hay imagen seleccionada
+    }
+    if(!img_uno ) {
+      // Verificar si el campo de imagen está vacío
+      Swal.fire({
+        icon: "warning",
+        text: "Por favor selecciona una imagen",
+      });
+      return; //
+    }
     try {
       const formData = new FormData();
       formData.append("imgArtesania", img_uno);
@@ -60,7 +77,7 @@ function SubirArtesania() {
 
   return (
     <>
-      <div className="py-5 my-5">
+      <div className=" container d-flex justify-content-center pb-3 border-bottom">
         <button
           type="button"
           className="p-2 btn-reg"

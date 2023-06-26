@@ -30,11 +30,16 @@
     background-color: #06192c;
 }
 
-.navbar-nav .nav-link:hover, .nav-link:active, .nav-link:visited{
-  text-shadow: 1px 1px 2px rgb(247, 246, 246), 0 0 1em rgb(203, 203, 210),
+.navbar-nav .nav-link:hover, .nav-link:visited{
+  text-shadow: 1px 1px 2px rgb(214, 240, 232), 0 0 1em rgb(197, 240, 243),
     0 0 0.2em rgb(79, 79, 202);
     color: white;
 }
+
+.men .nav-link.active {
+  color: #009970;
+}
+
 
 .btn-registro {
   width: 110px;

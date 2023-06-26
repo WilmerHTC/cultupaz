@@ -3,9 +3,7 @@ import { Link } from "react-router-dom";
 // Import extra_land
 import imgcreat from "../../assets/img/Creatividad.JPG";
 import imgident from "../../assets/img/Identidad.png";
-import imgevento1 from "../../assets/img/Artesania1.jpg";
 import imgmovil from "../../assets/img/Movil.png";
-import imgmovil2 from "../../assets/img/Movil2.png";
 import imgandroid from "../../assets/img/Play.png";
 
 import app1 from "../../assets/img/app1.png";
@@ -13,8 +11,6 @@ import app2 from "../../assets/img/app2.png";
 import app3 from "../../assets/img/app3.png";
 
 import imgapple from "../../assets/img/app.png";
-import imgevento2 from "../../assets/img/Artesania3.jpg";
-import imgevento3 from "../../assets/img/Artesania2.jpg";
 import blogdis from "../../assets/img/blogdis.jpg";
 
 //Aliados//
@@ -42,31 +38,15 @@ import svg2 from "../../assets/svg/undraw_online_chat_re_c4lx.svg";
 import svg3 from "../../assets/svg/undraw_fans_re_cri3.svg";
 import svg4 from "../../assets/svg/undraw_creative_woman_re_u5tk.svg";
 import CompFooter from "../../components/Footer";
-import Swal from "sweetalert2";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Inicio = () => {
-
-  const slides = [
-    {
-      img: '/',
-      // otras propiedades opcionales, como título o descripción
-    },
-    {
-      img: '/ruta/de/imagen2.jpg',
-      // otras propiedades opcionales, como título o descripción
-    },
-    // Agrega más diapositivas según sea necesario
-  ];
-
-  //Modal
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
   // const [ setShow] = useState(false);
 
-  // const handleClose = () => setShow(false);
+  useEffect(() => {
+    cargarArtesanias();
+  }, []);
 
   const showAlert = () => {
     Swal.fire({
@@ -80,10 +60,25 @@ const Inicio = () => {
         // handleClose(); // Cerrar el modal al hacer clic en "Aceptar"
       }
     });
-    //Funcion del carrusel
-
-
   };
+
+  function shuffle(array) {
+    let currentIndex = array.length, temporaryValue, randomIndex;
+ 
+    while (0 !== currentIndex) {
+
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+  
+    return array;
+  }
+  const artesaniasAleatorias = shuffle(artesanias).slice(0, 3);
+
   return (
     <div>
       <main className="py-5 floatingii">
@@ -162,33 +157,32 @@ const Inicio = () => {
                 <div className="icon-box">
                   <img src={svg1} className="img-svg" alt="img" />
                   <h4 className="title">
-                    <a href="">Juegos</a>
+                  <Link to={"#"}>Juegos</Link>
                   </h4>
                 </div>
               </div>
               <div className="col-md-6 col-lg-3 d-flex align-items-center mb-5 mb-lg-0  ">
                 <div className="icon-box">
-                  <img src={svg2} className="img-svg" />
+                  <img src={svg2} className="img-svg" alt="img" />
                   <h4 className="title">
-                    <a href="">Muro</a>
+                  <Link to={"#"}>Muro</Link>
+                  </h4>
+                </div>
+              </div>
+              <div className="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0 ">
+                <div className="icon-box">
+                  <img src={svg3} className="img-svg" alt="img"/>
+                  <h4 className="title">
+                  <Link to={"#"}>Charlas</Link>
                   </h4>
                 </div>
               </div>
 
               <div className="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0 ">
                 <div className="icon-box">
-                  <img src={svg3} className="img-svg" />
+                  <img src={svg4} className="img-svg"  alt="img"/>
                   <h4 className="title">
-                    <a href="">Charlas</a>
-                  </h4>
-                </div>
-              </div>
-
-              <div className="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0 ">
-                <div className="icon-box">
-                  <img src={svg4} className="img-svg" />
-                  <h4 className="title">
-                    <a href="">Artesanias</a>
+                    <Link to={"#"}>Artesanias</Link>
                   </h4>
                 </div>
               </div>
@@ -366,113 +360,37 @@ const Inicio = () => {
                 </div>
               </div>
               <div className="col-lg-12 d-flex align-items-stretch">
-                <div className="icon-boxes d-flex flex-column justify-content-center">
                   <div className="row">
-                    <div
-                      className="col-xl-4 d-flex align-items-stretch eventoone"
-                      data-aos="zoom-in"
-                      data-aos-delay="200"
-                    >
-                      <div className="icon-box mt-4 mt-xl-0 evento1">
-                        <div className="imagen ">
-                          <img
-                            src={imgevento1}
-                            alt="img4"
-                            className="img4 card-img-top"
-                          />
+                    
+                  {artesaniasAleatorias.map((artesania, index) => {
+                      const usuario = artesania.usuario;
+                      return (
+                        <div className="col-xl-4 d-flex align-items-stretch eventoone justify-content-center" key={index}>
+                          <div className="card">
+                          
+                            <img
+                              src={artesania.img_uno}
+                              className="w-100 shadow-1-strong rounded img-tam  "
+                              alt="Artesanía"
+                            />
+                            <div className="card-body">
+                              <h5 className="card-title text-center">{artesania.titulo}</h5>
+                              <p className="card-text">{artesania.descripcion}</p>
+                            </div>
+                            <div className="card-body d-flex justify-content-between ">
+                              <p className="list-group-item"><b>Hecha por: </b><br/> {usuario.nombre}</p>
+                              <a className="card-link" >
+                                <i className="bi bi-whatsapp" data-phone={usuario.telefono} onClick={redirectToWhatsApp}></i>
+                              </a>
+                            </div>
+                          
+                          </div>
                         </div>
-                        <i className="bx bx-cube-alt"></i>
-                        <div className="tampre1 ">
-                          <h4 className="tampre">
-                            <em>SENA</em>
-                          </h4>
-                          <h4>Saco tejido a mano</h4>
-                        </div>
-                        <p>
-                          <strong>Saco verde con un toque de azul con diseño exclusivo y cuello redondo. </strong> Completamente forrado con bolsillos internos. Silueta regular fit. Elaborado en 90% lana y 10% poliéster materiales en mezcla que brindan gran estructura a la prenda. Explora diferentes estilos acompañados de camisas informales y pantalones de algodón o jeans para lucir en diferentes ocasiones.
-                        </p>
-
-                        <strong>Usuario: Stiven_Gallejo </strong>
-
-                        <div>
-                          <button onClick={showAlert} className="btnmy btnmy3">
-                            ver más
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="col-xl-4 d-flex align-items-stretch eventoone"
-                      data-aos="zoom-in"
-                      data-aos-delay="200"
-                    >
-                      <div className="icon-box mt-4 mt-xl-0 evento1">
-                        <div className="imagen ">
-                          <img
-                            src={imgevento3}
-                            alt="img4"
-                            className="img5 card-img-top"
-                          />
-                        </div>
-                        <i className="bx bx-cube-alt"></i>
-                        <div className="tampre1 ">
-                          <h4 className="tampre">
-                            <em>SENA</em>
-                          </h4>
-                          <h4>
-                            Collar realizado con mas de 300 piedras
-                          </h4>
-                        </div>
-                        <p>
-                          <strong> Collar multicolor complemento exclusivo compuesto por siete hilos  </strong> de piedras
-                          semipreciosas facetadas de heliodoro, zafiro, esmeralda y rubí. Collar extensible con nudo corredizo. Puede quedar pegado al cuello así como extenderlo para que caiga por debajo del pecho. Brinda elegancia y resistente al agua. Ideal para combinar la pinta casual que a la vez le brinda un toque de elegante y moderno.
-                        </p>
-
-                        <strong>Usuario: Alejandra_Mendez </strong>
-
-                        <div>
-                          <button onClick={showAlert} className="btnmy btnmy3">
-                            ver más
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="col-xl-4 d-flex align-items-stretch eventoone"
-                      data-aos="zoom-in"
-                      data-aos-delay="200"
-                    >
-                      <div className="icon-box mt-4 mt-xl-0 evento1">
-                        <div className="imagen ">
-                          <img
-                            src={imgevento2}
-                            alt="img4"
-                            className="img6 card-img-top"
-                          />
-                        </div>
-                        <i className="bx bx-cube-alt"></i>
-                        <div className="tampre1 ">
-                          <h4 className="tampre">
-                            <em>SENA</em>
-                          </h4>
-                          <h4>Bolsa estampada en tela</h4>
-                        </div>
-                        <p>
-                          <strong>Esta bolsa es resistente y su tamaño es perfecto para llevar</strong>{" "}
-                          los accesorios indispensables para el dia diario, ya que es amplia. Por ello, es preferible evitar llevarlo en momentos de lluvia, el agua daría de sí el bolso y la resistencia podría reducir. Es un accesorio muy cómodo y da unos resultados excelentes. Además, estamos hablando de una exelente alternativa a lo plastico
-                        </p>
-
-                        <strong> Usuario: Manuel_Ortiz </strong>
-
-                        <div>
-                          <button onClick={showAlert} className="btnmy btnmy3">
-                            ver más
-                          </button>
-                        </div>
-                      </div>
-                    </div>
+                      );
+                    })}
+                  
                   </div>
-                </div>
+                
               </div>
             </div>
           </div>
@@ -547,71 +465,70 @@ const Inicio = () => {
         <br></br>
         <br></br>
         <h2 className="color_h3 text-center">Nuestros aliados</h2>
-        <div className="text-center container tamañocarousel">
-          <Carousel interval={3000} autoPlay={true} infiniteLoop={true}>
-            <div className="col text-center margin-30px-bottom sm-margin-15px-bottom">
-              <div className="client-box padding-70px-all ">
-                <a href="#">
-                  <img className="aliadopos" src={imgempresa1} alt="" />
-                </a>
-              </div>
+        <div className="row row22 row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 client-logo-style-01 align-items-center">
+          <div className="col text-center margin-30px-bottom sm-margin-15px-bottom">
+            <div className="client-box padding-70px-all ">
+              <a href="#">
+                <img className="aliadopos" src={imgempresa1} alt="" />
+              </a>
             </div>
-            <div className="col text-center margin-30px-bottom sm-margin-15px-bottom">
-              <div className="client-box padding-15px-all ">
-                <a href="#">
-                  <img className="aliadopos" src={imgempresa2} alt="" />
-                </a>
-              </div>
-            </div>
+          </div>
 
-            <div className="col text-center margin-30px-bottom sm-margin-15px-bottom">
-              <div className="client-box padding-15px-all ">
-                <a href="#">
-                  <img className="aliadopos" src={imgempresa3} alt="" />
-                </a>
-              </div>
+          <div className="col text-center margin-30px-bottom sm-margin-15px-bottom">
+            <div className="client-box padding-15px-all ">
+              <a href="#">
+                <img className="aliadopos" src={imgempresa2} alt="" />
+              </a>
             </div>
+          </div>
 
-            <div className="col text-center margin-30px-bottom sm-margin-15px-bottom">
-              <div className="client-box padding-15px-all ">
-                <a href="#">
-                  <img className="aliadopos" src={imgempresa4} alt="" />
-                </a>
-              </div>
+          <div className="col text-center margin-30px-bottom sm-margin-15px-bottom">
+            <div className="client-box padding-15px-all ">
+              <a href="#">
+                <img className="aliadopos" src={imgempresa3} alt="" />
+              </a>
             </div>
+          </div>
 
-            <div className="col text-center md-margin-30px-bottom sm-margin-15px-bottom">
-              <div className="client-box padding-15px-all ">
-                <a href="#">
-                  <img className="aliadopos" src={imgempresa5} alt="" />
-                </a>
-              </div>
+          <div className="col text-center margin-30px-bottom sm-margin-15px-bottom">
+            <div className="client-box padding-15px-all ">
+              <a href="#">
+                <img className="aliadopos" src={imgempresa4} alt="" />
+              </a>
             </div>
+          </div>
 
-            <div className="col text-center md-margin-30px-bottom sm-margin-15px-bottom">
-              <div className="client-box padding-15px-all ">
-                <a href="#">
-                  <img className="aliadopos" src={imgempresa6} alt="" />
-                </a>
-              </div>
+          <div className="col text-center md-margin-30px-bottom sm-margin-15px-bottom">
+            <div className="client-box padding-15px-all ">
+              <a href="#">
+                <img className="aliadopos" src={imgempresa5} alt="" />
+              </a>
             </div>
+          </div>
 
-            <div className="col text-center xs-margin-15px-bottom">
-              <div className="client-box padding-15px-all ">
-                <a href="#">
-                  <img className="aliadopos" src={imgempresa7} alt="" />
-                </a>
-              </div>
+          <div className="col text-center md-margin-30px-bottom sm-margin-15px-bottom">
+            <div className="client-box padding-15px-all ">
+              <a href="#">
+                <img className="aliadopos" src={imgempresa6} alt="" />
+              </a>
             </div>
+          </div>
 
-            <div className="col text-center">
-              <div className="client-box padding-15px-all ">
-                <a href="#">
-                  <img className="aliadopos" src={imgempresa8} alt="" />
-                </a>
-              </div>
+          <div className="col text-center xs-margin-15px-bottom">
+            <div className="client-box padding-15px-all ">
+              <a href="#">
+                <img className="aliadopos" src={imgempresa7} alt="" />
+              </a>
             </div>
-          </Carousel>
+          </div>
+
+          <div className="col text-center">
+            <div className="client-box padding-15px-all ">
+              <a href="#">
+                <img className="aliadopos" src={imgempresa8} alt="" />
+              </a>
+            </div>
+          </div>
         </div>
 
 
@@ -624,7 +541,7 @@ const Inicio = () => {
                 <h2 id="trackTitleYouAreDoctor" className="title text-medium">¿Eres gestor?</h2>
                 <p>Haz parte de nuestro equipo</p>
               </div>
-              <div className="grid-12 grid-sm-6 grid-md-6 btn-contact"><a id="trackJoinUp" className="button secondary outline-white rounded block"> <Link className="dropdown-item" to={"/registroGestor"}>¡Únete!</Link></a>
+              <div className="grid-12 grid-sm-6 grid-md-6 btn-contact"><p id="trackJoinUp" className="button secondary outline-white rounded block" > <Link className="dropdown-item" to={"/registroGestor"}>¡Únete!</Link></p>
               </div>
             </div>
           </div>

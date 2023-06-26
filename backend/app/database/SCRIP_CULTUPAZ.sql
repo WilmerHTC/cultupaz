@@ -86,7 +86,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `db_cultupaz`.`artesanias` (
   `idartesanias` INT NOT NULL AUTO_INCREMENT,
   `titulo` VARCHAR(45) NOT NULL,
-  `descripcion` VARCHAR(100) NOT NULL,
+  `descripcion` VARCHAR(300) NOT NULL,
   `img_uno` VARCHAR(200) NOT NULL,
   `img_dos` VARCHAR(200) NULL,
   `img_tres` VARCHAR(200) NULL,
