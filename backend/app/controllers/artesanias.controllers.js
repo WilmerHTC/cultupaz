@@ -1,6 +1,5 @@
 import dbconnection from "../database/dbConf.js";
 import cloudinary from "cloudinary";
-import { v2 as cloudinaryV2 } from "cloudinary";
 
 export const crearArtesania = async (req, res) => {
   try {
@@ -178,14 +177,28 @@ export const eliminarArtesania = async (req, res) => {
 };
 
 export const actualizarArtesania = async (req, res) => {
+  const {id}=req.params;
+  const querySelect = "SELECT img_uno FROM artesanias WHERE idartesanias = ?";
+dbconnection.query(querySelect, [id], async (err, result) => {
+  if (err) {
+    console.error(err);
+    return res.status(500).json("Error al obtener la imagen anterior");
+  }
+
+  if (result.length === 0) {
+    return res.status(404).json("La artesanía no existe");
+  }
+
+  const urlImagenAnterior = result[0].img_uno;
+
   try {
-    const { id } = req.params;
     const { titulo, descripcion, idUsuario } = req.body;
     if (!titulo || !descripcion || !idUsuario) {
       return res.status(400).json("Todos los datos son requeridos");
     }
 
     let urlImage;
+
     if (req.files && req.files.imgArtesania) {
       const resul = await cloudinary.uploader.upload(
         req.files.imgArtesania[0].path
@@ -223,7 +236,10 @@ export const actualizarArtesania = async (req, res) => {
     console.log(error);
     res.status(500).json("Error en el servidor");
   }
+});
+
 };
+
 
 // export const actualizarArtesania = async (req, res) => {
 //   try {
