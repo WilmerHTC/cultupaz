@@ -30,14 +30,6 @@ import Evento from './view/aprendiz/evento.jsx'
 import AprendizPerfil from "./view/aprendiz/PerfilAprendiz.jsx";
 
 
-
-
-
-//murin
-// import TasksPage from "./view/aprendiz/murin-1/TasksPage.jsx";
-
-
-
 //admin
 import CompMenuAdmin from "./components/MenuAdmin.jsx";
 import AdminHome from "./view/admin/AdminHome.jsx";
@@ -45,6 +37,7 @@ import AdminArtesanias from "./view/admin/AdminArtesanias.jsx";
 import AdminUsuarios from "./view/admin/AdminUsuarios.jsx";
 import AdminSolicitudes from "./view/admin/AdminSolicitudes.jsx";
 import AdminRegistro from "./view/admin/AdminRegistro.jsx";
+import AdminSugerencias from "./view/admin/AdminSugerencias.jsx";
 
 function App() {
   return (
@@ -99,6 +92,7 @@ function App() {
           <Route path="/admin/artesanias" element={<AdminArtesanias/>}/>
           <Route path="/admin/usuarios" element={<AdminUsuarios/>}/>
           <Route path="/admin/solicitudes" element={<AdminSolicitudes/>}/>
+          <Route path="/admin/sugerencias" element={<AdminSugerencias/>}/>
           <Route path="/admin/registro" element={<AdminRegistro/>}/>
         </Route>
       </Routes>

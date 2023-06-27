@@ -33,6 +33,7 @@ CREATE TABLE IF NOT EXISTS `db_cultupaz`.`usuarios` (
   `fechaNacimiento` DATE NOT NULL,
   `tipoDocumento` VARCHAR(60) NOT NULL,
   `numeroDocumento` VARCHAR(20)UNIQUE NOT NULL,
+  `foto` VARCHAR(200) NULL,
   `usuario` VARCHAR(45)UNIQUE  NULL,
   `correo` VARCHAR(50) UNIQUE NOT NULL,
   `passw` VARCHAR(200) NOT NULL,
@@ -118,20 +119,15 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `db_cultupaz`.`asistencias`
+-- Table `db_cultupaz`.`sugerencia_evento`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `db_cultupaz`.`sugerencia_evento` (
-  `idSugerenciaEvento` INT NOT NULL AUTO_INCREMENT,
-  `descripcion` VARCHAR(200) NULL,
+  `idSugerencia_evento` INT NOT NULL AUTO_INCREMENT,
+  `descripcion_sugerencia_evento` VARCHAR(200) NULL,
   `idUsuario` INT NOT NULL,
-  `idEvento` INT NOT NULL,
-  PRIMARY KEY (`idSugerenciaEvento`),
+  PRIMARY KEY (`idSugerencia_evento`),
     FOREIGN KEY (`idUsuario`)
     REFERENCES `db_cultupaz`.`usuarios` (`idUsuario`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-    FOREIGN KEY (`idEvento`)
-    REFERENCES `db_cultupaz`.`eventos` (`idEvento`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -141,6 +137,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `db_cultupaz`.`sugerencias` (
   `idSugerencia` INT NOT NULL AUTO_INCREMENT,
   `descripcion` VARCHAR(45) NOT NULL,
+  `fecha_creacion` DATETIME NOT NULL,
  
   PRIMARY KEY (`idSugerencia`))
 ENGINE = InnoDB;

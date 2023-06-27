@@ -23,7 +23,7 @@ function ActualizarArtesania({ artesania, onActualizar }) {
       formData.append("idUsuario", localStorage.getItem("idUsuario"));
 
       const loading = Swal.fire({
-        title: "Subiendo Artesania",
+        title: "Actualizando Artesania",
         text: "Por favor espera un momento...",
         allowOutsideClick: false,
         showConfirmButton: false,
@@ -45,9 +45,7 @@ function ActualizarArtesania({ artesania, onActualizar }) {
           text: response.data,
           showConfirmButton: false,
           timer: 1500,
-        }).then(() => {
-          window.location.reload();
-        });
+        })
       }
 
       onActualizar();
@@ -55,7 +53,7 @@ function ActualizarArtesania({ artesania, onActualizar }) {
       Swal.fire({
         icon: "error",
         title: "Error al actualizar",
-        text: "Hubo un error al actualizar la artesanía. Por favor, intenta de nuevo más tarde.",
+        text: "Hubo un error al actualizar la artesanía. Por favor, intenta de nuevo.",
       });
     }
   };
