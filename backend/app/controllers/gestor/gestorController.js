@@ -77,13 +77,6 @@ export const mostrarMisEventos = async (req, res) => {
       }
     };
   
-
-
-
-
-
-
-
 export const registroAsistencia = async (req, res) => {
     const { descripcion_sugerencia_evento,idUsuario	 } = req.body;
     const eventVal = [
