@@ -221,9 +221,7 @@ const verMisPublicaciones = async () => {
       console.log(error);
     }
   };
- const handleMostrarMisPublicaciones = () => {
-    setMostrarMisPublicaciones(!mostrarMisPublicaciones);
-  };
+
   return (
     <div>
       <div className="container pt-5">
@@ -247,6 +245,17 @@ const verMisPublicaciones = async () => {
           Crea una nueva publicación
         </Button>
       </div>
+       {/* Botón para mostrar solo las publicaciones del usuario actual */}
+        <div className="d-flex justify-content-center m-2">
+        <Button
+          className="btn colorheader letter"
+          onClick={() => verMisPublicaciones()}
+          >
+          Mostrar mis publicaciones
+        </Button>
+        
+      </div>
+      {/* <button onClick={handleVolverClick}>Volver</button> */}
 
       <section id="events" className="events">
         <div className="container" data-aos="fade-up">
