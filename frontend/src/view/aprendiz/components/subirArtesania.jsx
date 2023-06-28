@@ -7,10 +7,23 @@ function SubirArtesania() {
   const [titulo, setTitulo] = useState("");
   const [descripcion, setDescripcion] = useState("");
   const [img_uno, setImagen] = useState(null);
+  const [img_render, setImgRender] = useState(null);
 
   const handleImageChange = (ev) => {
     setImagen(ev.target.files[0]);
+    
+    const file=ev.target.files[0]
+
+    const render=new FileReader()
+
+    render.onload=()=>{
+      setImgRender(render.result)
+    }
+
+    render.readAsDataURL(file)
+
   };
+  
 
   const subirImg = async () => {
 
@@ -140,6 +153,9 @@ function SubirArtesania() {
                         accept="image/jpeg, image/png"
                         onChange={handleImageChange}
                       />
+                      <div className="selected-image text-center w-100 mb-3">
+                      {img_render ? <img className='w-50' src={img_render} alt="Imagen seleccionada" /> : <p>No se ha seleccionado ninguna imagen</p>}
+                      </div>
                     </div>
                   </div>
                 </form>
