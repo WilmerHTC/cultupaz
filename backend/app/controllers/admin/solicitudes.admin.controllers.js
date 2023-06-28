@@ -52,12 +52,15 @@ export const nuevaSolicitud = async (req, res) => {
 
 //registro sugerencias
 export const registroSugerencia = async (req, res) => {
-  const {
-      descripcion,
-  } = req.body;
+
+  try {
+    const {  descripcion} = req.body;
+  const fechaCreacion = new Date(); // Generar fecha actual
+
   const eventVal = [
       {
-          descripcion:descripcion
+          descripcion:descripcion,
+          fecha_creacion:fechaCreacion
       },
   ];
 
@@ -70,12 +73,15 @@ export const registroSugerencia = async (req, res) => {
           return res.status(200).json("Gracias por dejar tu opinión");
       }
   });
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+  
 }
 //ver sugerencias
 export const verSugerencias = async(req, res)=>{
   try {
-    const query =
-      "SELECT * FROM sugerencias";
+    const query =  "SELECT * FROM sugerencias";
     dbconnection.query(query, (err, result) => {
       if (err) {
         return res.status(500).json({ message: err.message });

@@ -81,14 +81,20 @@ function CompMenuAdmin() {
               <span>Solicitudes</span>
             </NavLink>
           </li>
-          {
+          <li className="nav-item">
+            <NavLink to="/admin/sugerencias" className="nav-link " activeClassName="active">
+            <i class="bi bi-card-text"></i>
+              <span>Sugerencias</span>
+            </NavLink>
+          </li>
+          
             <li className="nav-item"  activeClassName="active">
               <NavLink to="/admin/registro" className="nav-link " activeClassName="active">
                 <i class="bi bi-journal-text" />
                 <span>Registro</span>
               </NavLink>
             </li>
-          }
+          
         </ul>
       </aside>
       <Outlet />

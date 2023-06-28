@@ -23,7 +23,7 @@ router.post("/artesanias", input, crearArtesania);
 router.get("/artesanias", artesaniasFound);
 router.get("/artesanias/:id", verMisArtesanias);
 // Ruta para actualizar una artesanía
-router.put('/artesania/:id', actualizarArtesania);
+router.put('/artesania/:id',input, actualizarArtesania);
 
 // Ruta para eliminar una artesanía
 router.delete("/artesanias/:id", eliminarArtesania);
