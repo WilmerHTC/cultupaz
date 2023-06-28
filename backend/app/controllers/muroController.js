@@ -40,7 +40,22 @@ export const verPublicaciones = async (req, res) => {
     return res.status(500).json({ message: error.message });
   }
 };
-
+export const verMisPublicaciones = (req, res) => {
+  try {
+    const { id } = req.params;
+    const query = "select * from muro where idUsuario=?";
+    dbconnection.query(query, [id], (err, resul) => {
+      if (err) {
+        console.error(err);
+        return res.status(500).json("No fue posible ver tus artesanias");
+      }
+      res.status(200).json(resul);
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json("Error en el servidor");
+  }
+};
 export const eliminarPublicacion = async (req, res) => {
   try {
     const { idMuro } = req.params;

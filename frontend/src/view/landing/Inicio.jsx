@@ -28,8 +28,7 @@ import imgempresa8 from "../../assets/img/Empresa8.jpg";
 
 import React, { useEffect, useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
-import { Carousel } from 'react-responsive-carousel';
-import { Slide } from 'react-3d-carousel';
+
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 
 // import img svg

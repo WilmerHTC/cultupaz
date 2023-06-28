@@ -1,5 +1,3 @@
-import "../../assets/css/gestores.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -7,7 +5,9 @@ import moment from "moment";
 import "moment/locale/es";
 import Swal from "sweetalert2";
 import { Button } from "react-bootstrap";
-import "../../assets/css/slider.css"
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "../../assets/css/slider.css";
+
 moment.locale("es");
 
 function MuroAprendiz() {
@@ -16,6 +16,7 @@ function MuroAprendiz() {
   const [descripcion, setDescripcion] = useState("");
   const idUsuario = localStorage.getItem("idUsuario");
   const [fechaActual, setFechaActual] = useState(moment());
+  const [misPublicaciones, setMisPublicaciones] = useState([]);
 
   useEffect(() => {
     treaerEventos();
@@ -33,6 +34,8 @@ function MuroAprendiz() {
     try {
       const { data } = await axios.get("http://localhost:7000/verPublicaciones");
       setMuro(data);
+      setMisPublicaciones(data.filter((publicacion) => publicacion.idUsuario === idUsuario));
+
     } catch (error) {
       console.log(error);
     }
@@ -41,30 +44,30 @@ function MuroAprendiz() {
   const formatFechaCreacion = (fechaCreacion) => {
     const fechaActual = moment();
     const fecha = moment(fechaCreacion);
-  
+
     if (fecha.isAfter(fechaActual)) {
       return "Fecha inválida";
     }
-  
+
     const diffSeconds = Math.abs(fechaActual.diff(fecha, "seconds"));
-  
+
     if (diffSeconds < 60) {
       return `Hace un momento`;
     } else {
       const diffMinutes = Math.abs(fechaActual.diff(fecha, "minutes"));
-  
+
       if (diffMinutes < 60) {
         return `Hace ${diffMinutes} minuto${diffMinutes !== 1 ? "s" : ""}`;
       } else {
         const diffHours = Math.abs(fechaActual.diff(fecha, "hours"));
-  
+
         if (diffHours < 24) {
           return `Hace ${diffHours} hora${diffHours !== 1 ? "s" : ""}`;
         } else if (diffHours < 48) {
           return "Hace 1 día";
         } else {
           const diffDays = Math.abs(fechaActual.diff(fecha, "days"));
-  
+
           if (diffDays <= 5) {
             return `Hace ${diffDays} día${diffDays !== 1 ? "s" : ""}`;
           } else {
@@ -84,7 +87,7 @@ function MuroAprendiz() {
       });
     } else {
       try {
-        var resul = await axios.post(
+        const resul = await axios.post(
           "http://localhost:7000/publicacion",
           {
             titulo: titulo,
@@ -114,44 +117,69 @@ function MuroAprendiz() {
       }
     }
   };
+// Función para obtener las artesanías desde el backend
+const verMisPublicaciones = async () => {
+  try {
+    const response = await axios.get(
+      `http://localhost:7000/verMisPublicaciones/${idUsuario}`
+    );
+    verMuro(response.data);
+  } catch (error) {
+    console.error(error);
+  }
+};
 
   const eliminarPublicacion = async (id) => {
     try {
-      console.log(id);
-      const response = await axios.delete(`http://localhost:7000/eliminarPublicacion/${id}`);
-     
-      if (response.status ===200) {
+      const result = await Swal.fire({
+        icon: "warning",
+        title: "¿Estás seguro?",
+        text: "Esta acción no se puede deshacer",
+        showCancelButton: true,
+        cancelButtonText: "Cancelar",
+        confirmButtonText: "Eliminar",
+        cancelButtonColor: "#d33",
+        reverseButtons: true,
+      });
+
+      if (result.isConfirmed) {
+        await axios.delete(
+          `http://localhost:7000/eliminarPublicacion/${id}`
+        );
+        treaerEventos();
         Swal.fire({
           icon: "success",
-          title: "",
-          text:response.data,
-          confirmButtonText: "Aceptar",
-          timer: 3000,
-        }).then(() => {
-          window.location.reload();
-        });
-      } else {
-        Swal.fire({
-          icon: "error",
-          text: response.data.message,
+          title: "Publicación eliminada",
+          showConfirmButton: false,
+          timer: 1500,
         });
       }
     } catch (error) {
       console.log(error);
+      Swal.fire({
+        icon: "error",
+        text: "Error al eliminar la publicación",
+        confirmButtonText: "Aceptar",
+      });
     }
   };
 
   const editarPublicacion = async (publicacion) => {
     setTitulo(publicacion.titulo);
     setDescripcion(publicacion.descripcion);
+    console.log("idUsuario:", idUsuario);
 
     Swal.fire({
       title: "Editar publicación",
       html: `
-        <label>Título:</label>
-        <input id="swal-input1" class="swal2-input" value="${publicacion.titulo}">
-        <label>Descripción:</label>
-        <textarea id="swal-input2" class="swal2-textarea">${publicacion.descripcion}</textarea>
+        <div class="form-group">
+          <label>Título:</label>
+          <input id="swal-input1" class="swal2-input form-control" value="${publicacion.titulo}">
+        </div>
+        <div class="form-group">
+          <label>Descripción:</label>
+          <textarea id="swal-input2" class="swal2-textarea form-control">${publicacion.descripcion}</textarea>
+        </div>
       `,
       showCancelButton: true,
       confirmButtonText: "Guardar cambios",
@@ -169,31 +197,24 @@ function MuroAprendiz() {
     });
   };
 
-  const actualizarPublicacion = async (id, titulo, descripcion) => {
+  const actualizarPublicacion = async (idMuro, titulo, descripcion) => {
     try {
       const response = await axios.put(
-        `http://localhost:7000/editarPublicacion/${id}`,
+        `http://localhost:7000/editarPublicacion/${idMuro}`,
         {
           titulo: titulo,
           descripcion: descripcion,
         }
       );
-      console.log(response);
-      if (response.status === 200   ) {
+
+      if (response.status === 200) {
         Swal.fire({
           icon: "success",
           title: "",
-          text: response.data,
+          text: "Publicación actualizada correctamente",
           confirmButtonText: "Aceptar",
-          timer: 3000,
-        }).then(() => {
-          window.location.reload();
         });
-      } else {
-        Swal.fire({
-          icon: "error",
-          text: response.data.message,
-        });
+        treaerEventos();
       }
     } catch (error) {
       console.log(error);
@@ -202,18 +223,18 @@ function MuroAprendiz() {
 
   return (
     <div>
-    <div className="container pt-5">
-      <center>
-        <div>
-          <div className="container-psico pt-5">
-            <h3 className="titulo101 pt-5">Muro virtual</h3>
-            <hr />
-            <figcaption className='blockquote-footer py-3'><cite title="Source Title"> Nuestras palabras construyen puentes de diálogo entre nosotros,
+      <div className="container pt-5">
+        <center>
+          <div>
+            <div className="container-psico pt-5">
+              <h3 className="titulo101 pt-5">Muro virtual</h3>
+              <hr />
+              <figcaption className='blockquote-footer py-3'><cite title="Source Title"> Nuestras palabras construyen puentes de diálogo entre nosotros,
             <br></br>¡Expresa libremente tus ideas!</cite></figcaption>
+            </div>
           </div>
-        </div>
-      </center>
-    </div>
+        </center>
+      </div>
       <div className="d-flex justify-content-center m-2">
         <Button
           className="btn colorheader letter"
@@ -223,6 +244,17 @@ function MuroAprendiz() {
           Crea una nueva publicación
         </Button>
       </div>
+       {/* Botón para mostrar solo las publicaciones del usuario actual */}
+        <div className="d-flex justify-content-center m-2">
+        <Button
+          className="btn colorheader letter"
+          onClick={verMisPublicaciones}
+          >
+          Mostrar mis publicaciones
+        </Button>
+        
+      </div>
+      <button onClick={handleVolverClick}>Volver</button>
 
       <section id="events" className="events">
         <div className="container" data-aos="fade-up">
@@ -299,7 +331,7 @@ function MuroAprendiz() {
                     <label className="formtext py-2">Título</label>
                     <textarea
                       className="form-control"
-                      placeholder="Título de la tarea"
+                      placeholder="Título de tu comentario"
                       rows="2"
                       value={titulo}
                       onChange={(ev) => setTitulo(ev.target.value)}
@@ -311,7 +343,7 @@ function MuroAprendiz() {
                     <label className="formtext py-2">Descripción</label>
                     <textarea
                       className="form-control"
-                      placeholder="Descripción de la tarea"
+                      placeholder="Descripción de tu comentario"
                       rows="5"
                       value={descripcion}
                       onChange={(ev) => setDescripcion(ev.target.value)}
