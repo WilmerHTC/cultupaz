@@ -38,6 +38,7 @@ import AdminUsuarios from "./view/admin/AdminUsuarios.jsx";
 import AdminSolicitudes from "./view/admin/AdminSolicitudes.jsx";
 import AdminRegistro from "./view/admin/AdminRegistro.jsx";
 import AdminSugerencias from "./view/admin/AdminSugerencias.jsx";
+import {ProtectRoutesGestor, ProtectRoutesAprendiz, ProtectRoutesAdmin }from "./components/ProtectRoutes.jsx";
 
 function App() {
   return (
@@ -56,45 +57,46 @@ function App() {
         </Route>
 
         {/* routes gestor */}
-        <Route path="/gestor" element={<CompMenuGestor />}>
-          <Route path="/gestor" element={<Inicio />} />
-          <Route path="/gestor/agenda" element={<AgendaGestor />} />
-          {/* <Route path="/gestor/sugerencia" element={<MuestraTodo />} /> */}
-          <Route path="/gestor/Creaevento" element={<GestorEventos/>} />
-              <Route path="/gestor/nosotros" element={<Nosotros />} />
-          <Route path="/gestor/contactos" element={<Contactos />} />
-          <Route path="/gestor/perfil" element={<GestorPerfil />} />
-      
-        
+        <Route element={<ProtectRoutesGestor/>}>
+          <Route path="/gestor" element={<CompMenuGestor />}>
+            <Route path="/gestor" element={<Inicio />} />
+            <Route path="/gestor/agenda" element={<AgendaGestor />} />
+            <Route path="/gestor/Creaevento" element={<GestorEventos/>} />
+            <Route path="/gestor/nosotros" element={<Nosotros />} />
+            <Route path="/gestor/contactos" element={<Contactos />} />
+            <Route path="/gestor/perfil" element={<GestorPerfil />} />
+          </Route>
         </Route>
+        
      
          {/* routes aprenediz */}
-        <Route path="/aprendiz" element={<CompMenuAprendiz />}>
-          <Route path="/aprendiz" element={<Inicio />}/>
-          <Route path="/aprendiz/muro" element={ <MuroAprendiz />} />
-          <Route path="/aprendiz/evento" element={<Evento/>}/>
-          <Route path="/aprendiz/juegos" element={<Juegos/>}/>
-          <Route path="/aprendiz/Quiz" element={<Quiz/>}/>
-          <Route path="/aprendiz/Parejas" element={<Parejas/>}/>
-          <Route path="/aprendiz/nosotros" element={<Nosotros />}/>
-          <Route path="/aprendiz/galeria" element={<GaleriaAprendiz />}/>
-          <Route path="/aprendiz/contactos" element={<Contactos />}/>
-          <Route path="/aprendiz/culturaypaz" element={<Culturaypaz/>}/>
-          <Route path="/aprendiz/perfil" element={<AprendizPerfil />} />
-         
-     
+        <Route element={<ProtectRoutesAprendiz/>}>
+          <Route path="/aprendiz" element={<CompMenuAprendiz />}>
+            <Route path="/aprendiz" element={<Inicio />}/>
+            <Route path="/aprendiz/muro" element={ <MuroAprendiz />} />
+            <Route path="/aprendiz/evento" element={<Evento/>}/>
+            <Route path="/aprendiz/juegos" element={<Juegos/>}/>
+            <Route path="/aprendiz/Quiz" element={<Quiz/>}/>
+            <Route path="/aprendiz/Parejas" element={<Parejas/>}/>
+            <Route path="/aprendiz/nosotros" element={<Nosotros />}/>
+            <Route path="/aprendiz/galeria" element={<GaleriaAprendiz />}/>
+            <Route path="/aprendiz/contactos" element={<Contactos />}/>
+            <Route path="/aprendiz/culturaypaz" element={<Culturaypaz/>}/>
+            <Route path="/aprendiz/perfil" element={<AprendizPerfil />} />
+      
+          </Route>
         </Route>
-
 
           {/* rutas admin */}
-        <Route path="/admin" element={<CompMenuAdmin/>}>
-          <Route path="/admin" element={<AdminHome/>}/>
-          <Route path="/admin/artesanias" element={<AdminArtesanias/>}/>
-          <Route path="/admin/usuarios" element={<AdminUsuarios/>}/>
-          <Route path="/admin/solicitudes" element={<AdminSolicitudes/>}/>
-          <Route path="/admin/sugerencias" element={<AdminSugerencias/>}/>
-          <Route path="/admin/registro" element={<AdminRegistro/>}/>
-        </Route>
+       
+          <Route path="/admin" element={<CompMenuAdmin/>}>
+            <Route path="/admin" element={<AdminHome/>}/>
+            <Route path="/admin/artesanias" element={<AdminArtesanias/>}/>
+            <Route path="/admin/usuarios" element={<AdminUsuarios/>}/>
+            <Route path="/admin/solicitudes" element={<AdminSolicitudes/>}/>
+            <Route path="/admin/sugerencias" element={<AdminSugerencias/>}/>
+            <Route path="/admin/registro" element={<AdminRegistro/>}/>
+          </Route>
       </Routes>
 
     </div>

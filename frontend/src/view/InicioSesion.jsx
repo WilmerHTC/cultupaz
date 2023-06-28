@@ -29,12 +29,17 @@ function InicioSesion() {
           localStorage.setItem("idUsuario", resul.data.idUsuario);
           localStorage.setItem("nameUsuario", resul.data.nameUsuario);
           console.log(resul.data);
+
+          localStorage.setItem("logueado",true)
           if (resul.data.rol === 1) {
             navigate("/aprendiz");
+            localStorage.setItem("usuario","aprendiz")
           } else if (resul.data.rol === 2) {
             navigate("/gestor");
+            localStorage.setItem("usuario","gestor")
           } else if (resul.data.rol === 3) {
             navigate("/admin");
+            localStorage.setItem("usuario","admin")
           }
         });
       }

@@ -17,6 +17,8 @@ function CompMenuAprendiz() {
   const handleLogout = () => {
     localStorage.removeItem("idUsuario");
     localStorage.removeItem("nameUsuario");
+    localStorage.removeItem("usuario");
+    localStorage.removeItem("logueado");
   };
   return (
     <div>
