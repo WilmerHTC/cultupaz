@@ -22,11 +22,16 @@ function RegistroUser() {
   const [fecha, setFecha] = useState("");
   const [tipo, setTipo] = useState("");
   const [numDocumento, setNumDocumento] = useState("");
+  const [foto, setImagen] = useState(null);
   const [usuario, setUsuario] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirPassword, setConfirPassword] = useState("");
+ 
 
+  const handleImageChange = (ev) => {
+    setImagen(ev.target.files[0]);
+  };
   const resgistrarAprendiz = async () => {
     if (
       nombres === "" ||
@@ -49,26 +54,52 @@ function RegistroUser() {
     } else {
 
         try {
-          var resul = await axios.post(
-            "http://localhost:7000/registroUsuarios",
-            {
-              nombres: nombres,
-              apellidos: apellidos,
-              telefono: telefono,
-              ficha: ficha,
-              genero: genero,
-              fechaNacimiento: fecha,
-              tipoDocumento: tipo,
-              numeroDocumento: numDocumento,
-              usuario: usuario,
-              correo: email,
-              passw: password,
-              confirPassw: confirPassword,
-              idTipo: 1,
-              estadoUsuario: 1,
-            }
-          );
+          const formData = new FormData();
+          formData.append("nombres", nombres);
+          formData.append("apellidos", apellidos);
+          formData.append("telefono", telefono);
+          formData.append("ficha", ficha);
+          formData.append("genero", genero);
+          formData.append("fechaNacimiento", fecha);
+          formData.append("tipoDocumento", tipo);
+          formData.append("numeroDocumento", numDocumento);
+          formData.append("foto", foto);
+          formData.append("usuario", usuario);
+          formData.append("correo", email);
+          formData.append("passw", password);
+          formData.append("confirPassw", confirPassword);
+          formData.append("idTipo", 1);
+          formData.append("estadoUsuario", 1);
+          const loanding = Swal.fire({
+            title: "Su resgitro esta en proceso",
+            text: "Por favor espera un momento...",
+            allowOutsideClick: false,
+            showConfirmButton: false,
+            didOpen: () => {
+              Swal.showLoading();
+            },
+          });
 
+          var resul = await axios.post(
+            "http://localhost:7000/registroUsuarios", formData
+            // {
+            //   nombres: nombres,
+            //   apellidos: apellidos,
+            //   telefono: telefono,
+            //   ficha: ficha,
+            //   genero: genero,
+            //   fechaNacimiento: fecha,
+            //   tipoDocumento: tipo,
+            //   numeroDocumento: numDocumento,
+            //   usuario: usuario,
+            //   correo: email,
+            //   passw: password,
+            //   confirPassw: confirPassword,
+            //   idTipo: 1,
+            //   estadoUsuario: 1,
+            // }
+          );
+          loanding.close();
           if (resul.status === 200) {
             Swal.fire({
               icon: "success",
@@ -214,7 +245,17 @@ function RegistroUser() {
                         onChange={(ev) => setNumDocumento(ev.target.value)}
                       />
                     </div>
-
+                    <div className="col-sm-4 mb-3">
+                      <label className="form-label link" for="">
+                        Foto
+                      </label>
+                      <input
+                       type="file"
+                       className="form-control form-control-lg"
+                       accept="image/jpeg, image/png"
+                       onChange={handleImageChange}
+                      />
+                    </div>
                     <div className="col-sm-4 mb-3">
                       <label className="form-label link" for="">
                         Nombre de usuario
