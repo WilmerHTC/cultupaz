@@ -47,7 +47,7 @@ export const verMisPublicaciones = (req, res) => {
     dbconnection.query(query, [id], (err, resul) => {
       if (err) {
         console.error(err);
-        return res.status(500).json("No fue posible ver tus artesanias");
+        return res.status(500).json("No fue posible ver tus muro");
       }
       res.status(200).json(resul);
     });

@@ -16,7 +16,7 @@ function MuroAprendiz() {
   const [descripcion, setDescripcion] = useState("");
   const idUsuario = localStorage.getItem("idUsuario");
   const [fechaActual, setFechaActual] = useState(moment());
-  const [misPublicaciones, setMisPublicaciones] = useState([]);
+  const [mostrarMisPublicaciones, setMostrarMisPublicaciones] = useState(false);
 
   useEffect(() => {
     treaerEventos();
@@ -34,8 +34,9 @@ function MuroAprendiz() {
     try {
       const { data } = await axios.get("http://localhost:7000/verPublicaciones");
       setMuro(data);
-      setMisPublicaciones(data.filter((publicacion) => publicacion.idUsuario === idUsuario));
-
+      if (mostrarMisPublicaciones) {
+        setMuro(data.filter((publicacion) => publicacion.idUsuario === idUsuario));
+      }
     } catch (error) {
       console.log(error);
     }
@@ -121,7 +122,7 @@ function MuroAprendiz() {
 const verMisPublicaciones = async () => {
   try {
     const response = await axios.get(
-      `http://localhost:7000/verMisPublicaciones/${idUsuario}`
+      `http://localhost:7000/verMisPublicaciones/${localStorage.getItem("idUsuario")}`
     );
     verMuro(response.data);
   } catch (error) {
@@ -220,7 +221,9 @@ const verMisPublicaciones = async () => {
       console.log(error);
     }
   };
-
+ const handleMostrarMisPublicaciones = () => {
+    setMostrarMisPublicaciones(!mostrarMisPublicaciones);
+  };
   return (
     <div>
       <div className="container pt-5">
@@ -244,17 +247,6 @@ const verMisPublicaciones = async () => {
           Crea una nueva publicación
         </Button>
       </div>
-       {/* Botón para mostrar solo las publicaciones del usuario actual */}
-        <div className="d-flex justify-content-center m-2">
-        <Button
-          className="btn colorheader letter"
-          onClick={verMisPublicaciones}
-          >
-          Mostrar mis publicaciones
-        </Button>
-        
-      </div>
-      <button onClick={handleVolverClick}>Volver</button>
 
       <section id="events" className="events">
         <div className="container" data-aos="fade-up">
