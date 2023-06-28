@@ -13,6 +13,8 @@ import usuarios from "../app/routes/usuarios.routes.js";
 //ver solicitudes
 import solicitudes from "../app/routes/admin.routes.js";
 ///Gestor
+
+//Ver usuarios
 import gestorEvento from "./routes/gestorRoutes/gestor.routes.js";
 // Mi app principal
 

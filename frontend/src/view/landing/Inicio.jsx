@@ -29,7 +29,6 @@ import imgempresa8 from "../../assets/img/Empresa8.jpg";
 import React, { useEffect, useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import { Carousel } from 'react-responsive-carousel';
-import { Slide } from 'react-3d-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 
 // import img svg
@@ -485,76 +484,6 @@ const Inicio = () => {
         </div>
         <br></br>
         <br></br>
-        <h2 className="color_h3 text-center">Nuestros aliados</h2>
-        <div className="row row22 row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 client-logo-style-01 align-items-center">
-          <div className="col text-center margin-30px-bottom sm-margin-15px-bottom">
-            <div className="client-box padding-70px-all ">
-              <a href="#">
-                <img className="aliadopos" src={imgempresa1} alt="" />
-              </a>
-            </div>
-          </div>
-
-          <div className="col text-center margin-30px-bottom sm-margin-15px-bottom">
-            <div className="client-box padding-15px-all ">
-              <a href="#">
-                <img className="aliadopos" src={imgempresa2} alt="" />
-              </a>
-            </div>
-          </div>
-
-          <div className="col text-center margin-30px-bottom sm-margin-15px-bottom">
-            <div className="client-box padding-15px-all ">
-              <a href="#">
-                <img className="aliadopos" src={imgempresa3} alt="" />
-              </a>
-            </div>
-          </div>
-
-          <div className="col text-center margin-30px-bottom sm-margin-15px-bottom">
-            <div className="client-box padding-15px-all ">
-              <a href="#">
-                <img className="aliadopos" src={imgempresa4} alt="" />
-              </a>
-            </div>
-          </div>
-
-          <div className="col text-center md-margin-30px-bottom sm-margin-15px-bottom">
-            <div className="client-box padding-15px-all ">
-              <a href="#">
-                <img className="aliadopos" src={imgempresa5} alt="" />
-              </a>
-            </div>
-          </div>
-
-          <div className="col text-center md-margin-30px-bottom sm-margin-15px-bottom">
-            <div className="client-box padding-15px-all ">
-              <a href="#">
-                <img className="aliadopos" src={imgempresa6} alt="" />
-              </a>
-            </div>
-          </div>
-
-          <div className="col text-center xs-margin-15px-bottom">
-            <div className="client-box padding-15px-all ">
-              <a href="#">
-                <img className="aliadopos" src={imgempresa7} alt="" />
-              </a>
-            </div>
-          </div>
-
-          <div className="col text-center">
-            <div className="client-box padding-15px-all ">
-              <a href="#">
-                <img className="aliadopos" src={imgempresa8} alt="" />
-              </a>
-            </div>
-          </div>
-        </div>
-
-
-
-
         <div Style="height: auto;">
           <div id="lead" className="ng-star-inserted">
             <div className="grid container3 jc-center">

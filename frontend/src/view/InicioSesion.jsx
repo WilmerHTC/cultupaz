@@ -5,19 +5,24 @@ import fondo from "../assets/img/emprendimiento.png";
 import axios from "axios";
 import Swal from "sweetalert2";
 
+const verUsrAprend = "http://localhost:7000/verAprendices";
+
+
+
 function InicioSesion() {
+
   const navigate = useNavigate();
 
   const [correo, setCorreo] = useState("");
   const [passw, setPassw] = useState("");
 
   const iniciarSesion = async () => {
+
     try {
       const resul = await axios.post("http://localhost:7000/loginUsuarios", {
         correo: correo,
         passw: passw,
       });
-
       if (resul.status === 200) {
         Swal.fire({
           icon: "success",
@@ -93,6 +98,8 @@ function InicioSesion() {
                 >
                   Iniciar sesión
                 </button>
+
+                
               </div>
               <div className="d-flex justify-content-center mt-3">
                 <Link to="/" className="link text-light">

@@ -1,4 +1,5 @@
 import dbconnection from "../database/dbConf.js";
+import dbconnection from "../database/dbConf.js";
 import bcryptjs from "bcryptjs";
 export const resgitroUsuarios = async (req, res) => {
   const {
@@ -210,4 +211,6 @@ export const loginUsuarios = async (req, res) => {
     }
   });
 };
+
+
 

@@ -5,6 +5,8 @@ import Perfil from "../../assets/img/Perfil.png"
 
 
 function GestorPerfil (){
+    
+    
     return(
         <body>
       
