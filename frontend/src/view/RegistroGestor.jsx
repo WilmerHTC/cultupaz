@@ -21,10 +21,14 @@ function RegistroGestor() {
   const [fecha, setFecha] = useState("");
   const [tipo, setTipo] = useState("");
   const [numDocumento, setNumDocumento] = useState("");
+  const [foto, setImagen] = useState(null);
   const [usuario, setUsuario] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirPassword, setConfirPassword] = useState("");
+  const handleImageChange = (ev) => {
+    setImagen(ev.target.files[0]);
+  };
 
   const resgistrarGestor = async () => {
     if (
@@ -47,21 +51,46 @@ function RegistroGestor() {
       });
     } else {
       try {
-        var resul = await axios.post("http://localhost:7000/registroUsuarios", {
-          nombres: nombres,
-          apellidos: apellidos,
-          telefono: telefono,
-          genero: genero,
-          fechaNacimiento: fecha,
-          tipoDocumento: tipo,
-          numeroDocumento: numDocumento,
-          usuario: usuario,
-          correo: email,
-          passw: password,
-          confirPassw: confirPassword,
-          idTipo: 2,
-          estadoUsuario: 0,
-        });
+        const formData = new FormData();
+          formData.append("nombres", nombres);
+          formData.append("apellidos", apellidos);
+          formData.append("telefono", telefono);
+          formData.append("genero", genero);
+          formData.append("fechaNacimiento", fecha);
+          formData.append("tipoDocumento", tipo);
+          formData.append("numeroDocumento", numDocumento);
+          formData.append("foto", foto);
+          formData.append("usuario", usuario);
+          formData.append("correo", email);
+          formData.append("passw", password);
+          formData.append("confirPassw", confirPassword);
+          formData.append("idTipo", 2);
+          formData.append("estadoUsuario", 0);
+          const loanding = Swal.fire({
+            title: "Su resgitro esta en proceso",
+            text: "Por favor espera un momento...",
+            allowOutsideClick: false,
+            showConfirmButton: false,
+            didOpen: () => {
+              Swal.showLoading();
+            },
+          });
+
+        var resul = await axios.post("http://localhost:7000/registroUsuarios", formData 
+          // nombres: nombres,
+          // apellidos: apellidos,
+          // telefono: telefono,
+          // genero: genero,
+          // fechaNacimiento: fecha,
+          // tipoDocumento: tipo,
+          // numeroDocumento: numDocumento,
+          // usuario: usuario,
+          // correo: email,
+          // passw: password,
+          // confirPassw: confirPassword,
+          // idTipo: 2,
+          // estadoUsuario: 0,
+        );
 
         if (resul.status === 200) {
           Swal.fire({
@@ -189,6 +218,17 @@ function RegistroGestor() {
                         className="form-control form-control-lg"
                         value={numDocumento}
                         onChange={(ev) => setNumDocumento(ev.target.value)}
+                      />
+                    </div>
+                    <div className="col-sm-4 mb-3">
+                      <label className="form-label link" for="">
+                        Foto
+                      </label>
+                      <input
+                       type="file"
+                       className="form-control form-control-lg"
+                       accept="image/jpeg, image/png"
+                       onChange={handleImageChange}
                       />
                     </div>
 

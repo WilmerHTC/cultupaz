@@ -29,6 +29,7 @@ import imgempresa8 from "../../assets/img/Empresa8.jpg";
 import React, { useEffect, useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import { Carousel } from 'react-responsive-carousel';
+
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 
 // import img svg
@@ -379,15 +380,14 @@ const Inicio = () => {
                   </h3>
                 </div>
               </div>
-              <div className="col-lg-12 d-flex align-items-stretch">
-                  <div className="row">
+              <div className="col-lg-12 align-items-stretch">
+                  <div className="row artesanias">
                     
                   {artesaniasAleatorias.map((artesania, index) => {
                       const usuario = artesania.usuario;
                       return (
-                        <div className="col-xl-4 d-flex align-items-stretch eventoone justify-content-center" key={index}>
-                          <div className="card">
-                          
+                        <div className="col-xl-4 align-items-stretch eventoone justify-content-center" key={index}>
+                          <div className="card ">
                             <img
                               src={artesania.img_uno}
                               className="w-100 shadow-1-strong rounded img-tam  "

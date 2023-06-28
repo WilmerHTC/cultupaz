@@ -1,6 +1,8 @@
 import dbconnection from "../database/dbConf.js";
 import dbconnection from "../database/dbConf.js";
 import bcryptjs from "bcryptjs";
+import cloudinary from "cloudinary";
+
 export const resgitroUsuarios = async (req, res) => {
   const {
     nombres,
@@ -18,6 +20,14 @@ export const resgitroUsuarios = async (req, res) => {
     idTipo,
     estadoUsuario,
   } = req.body;
+
+  let urlImage;
+  if (req.files.foto) {
+      const resul = await cloudinary.uploader.upload(
+        req.files.foto[0].path
+      );
+      urlImage = resul.secure_url;
+  } 
 
   //validacion contraseña
   if (passw.length < 6) {
@@ -60,6 +70,7 @@ export const resgitroUsuarios = async (req, res) => {
   if (!emailRegex.test(correo)) {
     return res.status(400).json("Debe ingresar una dirección de correo valida");
   }
+  
 
   const passHas = await bcryptjs.hash(passw, 10);
 
@@ -73,6 +84,7 @@ export const resgitroUsuarios = async (req, res) => {
       fechaNacimiento: fechaNacimiento,
       tipoDocumento: tipoDocumento,
       numeroDocumento: numeroDocumento,
+      foto:urlImage,
       usuario: usuario,
       correo: correo,
       passw: passHas,

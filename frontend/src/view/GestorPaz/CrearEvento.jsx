@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import { Button } from "react-bootstrap";
 
 function CrearEvento() {
+  const [titulo, setTitulo] = useState("");
   const [tema_evento, setTema] = useState("");
   const [descripcion_evento, setDescripcion] = useState("");
   const [fecha_evento, setFecha] = useState("");
